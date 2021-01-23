@@ -1,0 +1,10 @@
+#!/bin/bash
+
+set -e
+
+WINDOWS_MENU=$(awk -F\' '/menuentry / {print $2}' /boot/grub/grub.cfg | grep -i windows)
+
+echo -e "Rebooting to $WINDOWS_MENU"
+
+sudo grub-reboot "$WINDOWS_MENU"
+sudo shutdown -r now

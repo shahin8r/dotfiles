@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [[ "$(uname -s)" == "Darwin" ]]; then
+  pmset sleepnow
+fi
+
+if [[ "$(uname -s)" == "Linux" ]]; then
+  systemctl suspend
+fi
