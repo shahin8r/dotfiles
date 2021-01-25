@@ -18,7 +18,7 @@ else
   REGEX_NAME="\[(.+)\]"
   REGEX_URL="\((.+)\)"
 
-  WEBSITES+=("[Trello](https://trello.com")
+  WEBSITES+=("[Trello](https://trello.com)")
   WEBSITES+=("[Clubhouse](https://app.clubhouse.io)")
 
   for i in ${!WEBSITES[@]}; do
