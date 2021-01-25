@@ -43,6 +43,11 @@ if [[ "$(uname -s)" == "Linux" ]]; then
   sudo curl -Lo /usr/local/bin/aws-vault https://github.com/99designs/aws-vault/releases/latest/download/aws-vault-linux-amd64
   sudo chmod 755 /usr/local/bin/aws-vault
 
+  # install aws-elasticbeanstalk
+  sudo apt install -y build-essential zlib1g-dev libssl-dev libncurses-dev libffi-dev libsqlite3-dev libreadline-dev libbz2-dev
+  git clone https://github.com/aws/aws-elastic-beanstalk-cli-setup.git /tmp
+  /tmp/aws-elastic-beanstalk-cli-setup/scripts/bundled_installer
+
   # install yarn
   sudo npm install -g yarn
 
