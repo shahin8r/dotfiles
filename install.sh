@@ -3,7 +3,7 @@
 if [[ "$(uname -s)" == "Darwin" ]]; then
   bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-  brew install git zsh node wget tmux vim pv yarn nvm awscli aws-elasticbeanstalk jq htop mpv ranger ncdu terraform
+  brew install git zsh node wget tmux vim pv yarn nvm awscli aws-elasticbeanstalk jq htop mpv ranger ncdu terraform blueutil
   brew install --cask aws-vault iterm2 hyper visual-studio-code docker google-chrome slack spotify telegram-desktop notion figma keepingyouawake
 
   # disable press and hold for vscode so we can use vim keybindings
