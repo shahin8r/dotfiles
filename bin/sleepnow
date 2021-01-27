@@ -1,9 +1,25 @@
 #!/bin/bash
 
+printf "\nPut to sleep or turn off monitors only?\n\n"
+printf "1. Sleep\n"
+printf "2. Turn off monitors\n"
+printf "\nDefault [1]: "
+
+read SLEEP_OR_TURN_OFF_MONITORS
+
 if [[ "$(uname -s)" == "Darwin" ]]; then
-  pmset displaysleepnow
+  if [[ $SLEEP_OR_TURN_OFF_MONITORS == "" || $SLEEP_OR_TURN_OFF_MONITORS == "1" ]]; then
+    pmset sleepnow
+  else
+    pmset displaysleepnow
+  fi
 fi
 
 if [[ "$(uname -s)" == "Linux" ]]; then
-  sleep 1 && xset dpms force off && loginctl lock-session
+  if [[ $SLEEP_OR_TURN_OFF_MONITORS == "" || $SLEEP_OR_TURN_OFF_MONITORS == "1" ]]; then
+    sleep 1 && systemctl suspend
+  else
+    sleep 1 && xset dpms force off && loginctl lock-session
+  fi
 fi
+
