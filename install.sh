@@ -3,7 +3,7 @@
 if [[ "$(uname -s)" == "Darwin" ]]; then
   bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-  brew install git zsh node wget tmux vim pv yarn nvm awscli aws-elasticbeanstalk jq htop mpv ranger ncdu terraform blueutil
+  brew install git zsh node wget tmux vim pv yarn nvm awscli aws-elasticbeanstalk jq htop mpv ranger ncdu terraform blueutil nload
   brew install --cask aws-vault iterm2 hyper visual-studio-code docker google-chrome slack spotify telegram-desktop notion figma keepingyouawake
 
   # disable press and hold for vscode so we can use vim keybindings
@@ -12,7 +12,7 @@ fi
 
 if [[ "$(uname -s)" == "Linux" ]]; then
   sudo apt update
-  sudo apt install -y awscli curl vim build-essential nodejs npm tmux pv zsh htop jq mpv ranger ncdu telegram-desktop slack-desktop telegram-desktop
+  sudo apt install -y awscli curl vim build-essential nodejs npm tmux pv zsh htop jq mpv ranger ncdu telegram-desktop slack-desktop telegram-desktop nload
 
   # install hyper terminal
   curl -sL https://releases.hyper.is/download/deb -o /tmp/hyper.deb && sudo apt install -y /tmp/hyper.deb
