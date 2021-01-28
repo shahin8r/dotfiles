@@ -9,6 +9,8 @@ ask_disconnect_bt_headphones() {
   fi
 }
 
+ask_disconnect_bt_headphones
+
 printf "\nPut to sleep or turn off monitors only?\n\n"
 printf "1. Sleep\n"
 printf "2. Turn off monitors\n"
@@ -20,7 +22,6 @@ if [[ "$(uname -s)" == "Darwin" ]]; then
   if [[ $SLEEP_OR_TURN_OFF_MONITORS == "" || $SLEEP_OR_TURN_OFF_MONITORS == "1" ]]; then
     pmset sleepnow
   else
-    ask_disconnect_bt_headphones
     pmset displaysleepnow
   fi
 fi
@@ -29,7 +30,6 @@ if [[ "$(uname -s)" == "Linux" ]]; then
   if [[ $SLEEP_OR_TURN_OFF_MONITORS == "" || $SLEEP_OR_TURN_OFF_MONITORS == "1" ]]; then
     sleep 1 && systemctl suspend
   else
-    ask_disconnect_bt_headphones
     sleep 1 && xset dpms force off && loginctl lock-session
   fi
 fi
