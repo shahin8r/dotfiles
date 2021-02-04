@@ -4,7 +4,7 @@ if [[ "$(uname -s)" == "Darwin" ]]; then
   bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
   brew install git zsh node wget tmux vim pv yarn nvm awscli aws-elasticbeanstalk jq htop mpv ranger ncdu terraform blueutil nload docker-credential-helper-ecr
-  brew install --cask aws-vault iterm2 hyper visual-studio-code docker google-chrome slack spotify telegram-desktop notion figma keepingyouawake
+  brew install --cask aws-vault iterm2 visual-studio-code docker google-chrome slack spotify telegram-desktop notion figma keepingyouawake kitty
 
   # disable press and hold for vscode so we can use vim keybindings
   defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
@@ -12,11 +12,10 @@ fi
 
 if [[ "$(uname -s)" == "Linux" ]]; then
   sudo apt update
-  sudo apt install -y awscli curl vim build-essential nodejs npm tmux pv zsh htop jq mpv ranger ncdu telegram-desktop slack-desktop telegram-desktop nload amazon-ecr-credential-helper
+  sudo apt install -y awscli curl vim build-essential nodejs npm tmux pv zsh htop jq mpv ranger ncdu telegram-desktop slack-desktop telegram-desktop nload amazon-ecr-credential-helper kitty
 
-  # install hyper terminal
-  curl -sL https://releases.hyper.is/download/deb -o /tmp/hyper.deb && sudo apt install -y /tmp/hyper.deb
-  gsettings set org.gnome.desktop.default-applications.terminal exec 'hyper'
+  # set kitty as default terminal in gnome
+  gsettings set org.gnome.desktop.default-applications.terminal exec 'kitty'
 
   # install vscode
   wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
@@ -64,8 +63,10 @@ fi
 git clone https://github.com/shahin8r/dotfiles.git $HOME/.dotfiles
 ln -sf $HOME/.dotfiles/.gitconfig $HOME
 
-# setup hyper config
-ln -sf $HOME/.dotfiles/.hyper.js $HOME
+# setup kitty config
+mkdir -p $HOME/.config/kitty
+ln -sf $HOME/.dotfiles/kitty.conf $HOME/.config/kitty
+ln -sf $HOME/.dotfiles/kitty_zoom_toggle.py $HOME/.config/kitty
 
 # install nvm
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
