@@ -3,7 +3,7 @@
 if [[ "$(uname -s)" == "Darwin" ]]; then
   bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-  brew install git zsh node wget tmux vim pv yarn nvm awscli aws-elasticbeanstalk jq htop mpv ranger ncdu terraform blueutil nload docker-credential-helper-ecr
+  brew install git zsh node wget tmux vim pv yarn nvm awscli aws-elasticbeanstalk jq htop mpv ranger ncdu terraform blueutil nload docker-credential-helper-ecr act
   brew install --cask aws-vault iterm2 visual-studio-code docker google-chrome slack spotify telegram-desktop notion figma keepingyouawake kitty
 
   # disable press and hold for vscode so we can use vim keybindings
@@ -46,6 +46,9 @@ if [[ "$(uname -s)" == "Linux" ]]; then
   sudo apt install -y build-essential zlib1g-dev libssl-dev libncurses-dev libffi-dev libsqlite3-dev libreadline-dev libbz2-dev
   git clone https://github.com/aws/aws-elastic-beanstalk-cli-setup.git /tmp
   /tmp/aws-elastic-beanstalk-cli-setup/scripts/bundled_installer
+
+  # install act
+  curl https://raw.githubusercontent.com/nektos/act/master/install.sh | sudo bash
 
   # install yarn
   sudo npm install -g yarn
