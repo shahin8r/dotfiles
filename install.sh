@@ -4,7 +4,7 @@ if [[ "$(uname -s)" == "Darwin" ]]; then
   bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
   brew install git zsh node wget tmux vim pv yarn nvm awscli aws-elasticbeanstalk jq htop mpv ranger ncdu terraform blueutil nload docker-credential-helper-ecr act mysql-client
-  brew install --cask aws-vault iterm2 visual-studio-code docker google-chrome slack spotify telegram-desktop notion figma keepingyouawake kitty poedit transmission
+  brew install --cask aws-vault iterm2 visual-studio-code docker google-chrome slack spotify telegram-desktop notion figma keepingyouawake kitty sequel-ace poedit transmission
 
   # disable press and hold for vscode so we can use vim keybindings
   defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
