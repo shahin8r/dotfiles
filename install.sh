@@ -51,7 +51,7 @@ if [[ "$(uname -s)" == "Linux" ]]; then
   curl https://raw.githubusercontent.com/nektos/act/master/install.sh | sudo bash
 
   # install yarn
-  sudo npm install -g yarn
+  npm install -g yarn
 
   # install google-chrome
   wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -P /tmp
