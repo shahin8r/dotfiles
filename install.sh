@@ -65,6 +65,7 @@ fi
 
 git clone https://github.com/shahin8r/dotfiles.git $HOME/.dotfiles
 ln -sf $HOME/.dotfiles/.gitconfig $HOME
+ln -sf $HOME/.dotfiles/.vimrc $HOME
 
 # setup kitty config
 mkdir -p $HOME/.config/kitty
