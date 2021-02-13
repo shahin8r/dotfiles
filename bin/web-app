@@ -40,4 +40,4 @@ else
   URL="${BASH_REMATCH[1]}"
 fi
 
-eval "$CHROME_PATH --app=$URL > /dev/null 2>&1"
+eval "$CHROME_PATH --app=$URL > /dev/null 2>&1 &"
