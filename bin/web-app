@@ -21,6 +21,7 @@ else
   WEBSITES+=("[Trello](https://trello.com)")
   WEBSITES+=("[Clubhouse](https://app.clubhouse.io)")
   WEBSITES+=("[Notion](https://notion.so)")
+  WEBSITES+=("[Toggl Track](https://track.toggl.com)")
 
   for i in ${!WEBSITES[@]}; do
     [[ ${WEBSITES[$i]} =~ $REGEX_NAME ]]
