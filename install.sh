@@ -4,7 +4,7 @@ if [[ "$(uname -s)" == "Darwin" ]]; then
   bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
   brew install git zsh node wget tmux vim pv yarn nvm awscli aws-elasticbeanstalk jq htop mpv ranger ncdu terraform blueutil nload docker-credential-helper-ecr act mysql-client
-  brew install --cask aws-vault iterm2 visual-studio-code docker google-chrome slack spotify telegram-desktop notion figma keepingyouawake kitty sequel-ace poedit transmission
+  brew install --cask aws-vault iterm2 visual-studio-code docker google-chrome slack spotify telegram-desktop notion figma keepingyouawake kitty sequel-ace poedit transmission keeweb
 
   # disable press and hold for vscode so we can use vim keybindings
   defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
@@ -61,6 +61,13 @@ if [[ "$(uname -s)" == "Linux" ]]; then
   curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | sudo apt-key add - 
   echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
   sudo apt update && sudo apt install -y spotify-client
+
+  # install keeweb
+  sudo apt install -y xdotool
+  curl -sL https://api.github.com/repos/keeweb/keeweb/releases/latest \
+  | grep browser_download_url | grep linux.x64.deb | cut -d '"' -f 4 \
+  | wget -qi - -O /tmp/KeeWeeb.deb
+  sudo apt install -y /tmp/KeeWeeb.deb
 fi
 
 git clone https://github.com/shahin8r/dotfiles.git $HOME/.dotfiles
