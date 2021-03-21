@@ -24,3 +24,5 @@ PROMPT_EOL_MARK=''
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/bin/terraform terraform
+
+export LESSCHARSET=UTF-8
