@@ -12,7 +12,7 @@ fi
 
 if [[ "$(uname -s)" == "Linux" ]]; then
   sudo apt update
-  sudo apt install -y awscli curl vim build-essential nodejs npm tmux pv zsh htop jq mpv ranger ncdu telegram-desktop slack-desktop telegram-desktop nload amazon-ecr-credential-helper kitty poedit transmission mysql-client peco
+  sudo apt install -y awscli curl vim build-essential nodejs npm tmux pv zsh htop jq mpv ranger ncdu telegram-desktop slack-desktop telegram-desktop nload amazon-ecr-credential-helper kitty transmission mysql-client peco
 
   # set kitty as default terminal in gnome
   gsettings set org.gnome.desktop.default-applications.terminal exec 'kitty'
@@ -47,9 +47,6 @@ if [[ "$(uname -s)" == "Linux" ]]; then
   git clone https://github.com/aws/aws-elastic-beanstalk-cli-setup.git /tmp
   /tmp/aws-elastic-beanstalk-cli-setup/scripts/bundled_installer
 
-  # install act
-  curl https://raw.githubusercontent.com/nektos/act/master/install.sh | sudo bash
-
   # install yarn
   npm install -g yarn
 
@@ -61,13 +58,6 @@ if [[ "$(uname -s)" == "Linux" ]]; then
   curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | sudo apt-key add - 
   echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
   sudo apt update && sudo apt install -y spotify-client
-
-  # install keeweb
-  sudo apt install -y xdotool
-  curl -sL https://api.github.com/repos/keeweb/keeweb/releases/latest \
-  | grep browser_download_url | grep linux.x64.deb | cut -d '"' -f 4 \
-  | wget -qi - -O /tmp/KeeWeeb.deb
-  sudo apt install -y /tmp/KeeWeeb.deb
 fi
 
 git clone https://github.com/shahin8r/dotfiles.git $HOME/.dotfiles
