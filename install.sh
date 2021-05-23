@@ -17,7 +17,7 @@ fi
 
 if [[ "$(uname -s)" == "Linux" ]]; then
   sudo apt update
-  sudo apt install -y awscli curl vim build-essential nodejs npm tmux pv zsh htop jq mpv ranger ncdu telegram-desktop slack-desktop telegram-desktop nload amazon-ecr-credential-helper kitty transmission mysql-client peco light compton feh i3 rofi
+  sudo apt install -y awscli curl vim build-essential nodejs npm tmux pv zsh htop jq mpv ranger ncdu telegram-desktop slack-desktop telegram-desktop nload amazon-ecr-credential-helper kitty transmission mysql-client peco light compton feh i3 rofi xss-lock
 
   # set kitty as default terminal in gnome
   gsettings set org.gnome.desktop.default-applications.terminal exec 'kitty'
