@@ -1,5 +1,10 @@
 #!/bin/bash
 
+
+git clone https://github.com/shahin8r/dotfiles.git $HOME/.dotfiles
+ln -sf $HOME/.dotfiles/.gitconfig $HOME
+ln -sf $HOME/.dotfiles/.vimrc $HOME
+
 if [[ "$(uname -s)" == "Darwin" ]]; then
   bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
@@ -58,11 +63,14 @@ if [[ "$(uname -s)" == "Linux" ]]; then
   curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | sudo apt-key add - 
   echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
   sudo apt update && sudo apt install -y spotify-client
-fi
 
-git clone https://github.com/shahin8r/dotfiles.git $HOME/.dotfiles
-ln -sf $HOME/.dotfiles/.gitconfig $HOME
-ln -sf $HOME/.dotfiles/.vimrc $HOME
+  # setup i3
+  ln -sf $HOME/.dotfiles/i3config $HOME/.config/i3/config
+  ln -sf $HOME/.dotfiles/.i3status.conf $HOME
+
+  # setup compton
+  ln -sf $HOME/.dotfiles/compton.conf $HOME/.config
+fi
 
 # setup kitty config
 mkdir -p $HOME/.config/kitty
