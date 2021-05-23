@@ -17,7 +17,7 @@ fi
 
 if [[ "$(uname -s)" == "Linux" ]]; then
   sudo apt update
-  sudo apt install -y awscli curl vim build-essential nodejs npm tmux pv zsh htop jq mpv ranger ncdu telegram-desktop slack-desktop telegram-desktop nload amazon-ecr-credential-helper kitty transmission mysql-client peco light compton feh i3
+  sudo apt install -y awscli curl vim build-essential nodejs npm tmux pv zsh htop jq mpv ranger ncdu telegram-desktop slack-desktop telegram-desktop nload amazon-ecr-credential-helper kitty transmission mysql-client peco light compton feh i3 rofi
 
   # set kitty as default terminal in gnome
   gsettings set org.gnome.desktop.default-applications.terminal exec 'kitty'
@@ -70,6 +70,10 @@ if [[ "$(uname -s)" == "Linux" ]]; then
 
   # setup compton
   ln -sf $HOME/.dotfiles/compton.conf $HOME/.config
+
+  # setup rofi
+  mkdir -p $HOME/.config/rofi
+  ln -sf $HOME/.dotfiles/rofi-config $HOME/.config/rofi/config
 
   # setup gtk settings
   ln -sf $HOME/.dotfiles/gtk-3.0-settings.conf $HOME/.config/gtk-3.0/settings.ini
