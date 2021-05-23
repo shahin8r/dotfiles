@@ -169,9 +169,6 @@ exec_always --no-startup-id xinput set-prop 12 315 1
 bindsym $mod+b exec --no-startup-id sensible-browser
 bindsym Control+space exec --no-startup-id toggle_keyboard_layout.sh
 
-# set wallpaper (requires feh)
-exec --no-startup-id feh --bg-scale $HOME/Pictures/x250.jpg
-
 # fix screen tearing etc (requires compton)
 exec --no-startup-id compton -b --config $HOME/.config/compton.conf
 
