@@ -70,6 +70,9 @@ if [[ "$(uname -s)" == "Linux" ]]; then
 
   # setup compton
   ln -sf $HOME/.dotfiles/compton.conf $HOME/.config
+
+  # setup gtk settings
+  ln -sf $HOME/.dotfiles/gtk-3.0-settings.conf $HOME/.config/gtk-3.0/settings.ini
 fi
 
 # setup kitty config
