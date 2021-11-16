@@ -79,6 +79,12 @@ if [[ "$(uname -s)" == "Linux" ]]; then
   ln -sf $HOME/.dotfiles/gtk-3.0-settings.conf $HOME/.config/gtk-3.0/settings.ini
 fi
 
+# setup tmux
+ln -sf $HOME/.dotfiles/.tmux.conf $HOME/.tmux.conf
+
+# setup neovim
+ln -sf $HOME/.dotfiles/nvim $HOME/.config/nvim
+
 # setup kitty config
 mkdir -p $HOME/.config/kitty
 ln -sf $HOME/.dotfiles/kitty.conf $HOME/.config/kitty
