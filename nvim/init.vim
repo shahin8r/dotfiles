@@ -10,7 +10,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
   Plug 'preservim/nerdtree'
-  Plug 'ryanoasis/vim-devicons'
+  Plug 'tpope/vim-rhubarb'
 call plug#end()
 
 let g:coc_global_extensions = ['coc-tsserver', 'coc-angular', 'coc-prettier', 'coc-phpls', 'coc-php-cs-fixer']
@@ -18,7 +18,10 @@ source $HOME/.config/nvim/coc.vim
 
 set background=dark
 set syntax
-set relativenumber
+set number relativenumber
+set nu rnu
+set updatetime=100
+set scrolloff=10
 set autoread
 set autoindent 
 set expandtab
@@ -45,7 +48,8 @@ hi TabLineSel ctermbg=black ctermfg=255
 hi NonText ctermbg=black ctermfg=59
 
 imap jj <Esc>
-nnoremap <silent> <C-p> :Files<CR>
+nnoremap <silent> <C-p> :GFiles<CR>
+nnoremap <silent> <Leader>p :Files<CR>
 nnoremap <silent> <Leader>f :Rg<CR>
 nnoremap <C-n> :NERDTreeToggle<CR>
 nnoremap <Leader>c :nohl<CR>
@@ -53,4 +57,6 @@ nnoremap <Leader>c :nohl<CR>
 set listchars=space:·
 
 let g:airline_powerline_fonts = 2
+
+autocmd BufWritePost *.php silent! call CocCommand php-cs-fixer.fix
 
