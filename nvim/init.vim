@@ -11,6 +11,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'vim-airline/vim-airline-themes'
   Plug 'preservim/nerdtree'
   Plug 'tpope/vim-rhubarb'
+  Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 let g:coc_global_extensions = ['coc-tsserver', 'coc-angular', 'coc-prettier', 'coc-phpls', 'coc-php-cs-fixer']
