@@ -8,7 +8,7 @@ ln -sf $HOME/.dotfiles/.vimrc $HOME
 if [[ "$(uname -s)" == "Darwin" ]]; then
   bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-  brew install git zsh node wget tmux vim pv yarn nvm awscli aws-elasticbeanstalk jq htop mpv ranger ncdu terraform blueutil nload docker-credential-helper-ecr act mysql-client
+  brew install git zsh node wget tmux neovim vim pv yarn nvm awscli aws-elasticbeanstalk jq htop mpv ranger ncdu terraform blueutil nload docker-credential-helper-ecr act mysql-client ripgrep
   brew install --cask aws-vault iterm2 visual-studio-code docker google-chrome slack spotify telegram-desktop keepingyouawake sequel-ace transmission peco
 
   # disable press and hold for vscode so we can use vim keybindings
@@ -17,7 +17,7 @@ fi
 
 if [[ "$(uname -s)" == "Linux" ]]; then
   sudo apt update
-  sudo apt install -y zsh awscli curl python3-pip neovim vim build-essential nodejs npm tmux pv zsh htop jq mpv ranger ncdu telegram-desktop nload amazon-ecr-credential-helper transmission mysql-client peco light compton feh i3 rofi xss-lock
+  sudo apt install -y zsh awscli curl python3-pip neovim vim build-essential nodejs npm tmux pv zsh htop jq mpv ranger ncdu telegram-desktop nload amazon-ecr-credential-helper transmission mysql-client peco light compton feh i3 rofi xss-lock ripgrep xinput rxvt-unicode
 
   # install vscode
   wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
@@ -72,13 +72,18 @@ if [[ "$(uname -s)" == "Linux" ]]; then
 
   # setup gtk settings
   ln -sf $HOME/.dotfiles/gtk-3.0-settings.conf $HOME/.config/gtk-3.0/settings.ini
+
+  # setup urxvt
+  ln -sf $HOME/.dotfiles/.Xresources $HOME/.Xresources
+  wget https://raw.githubusercontent.com/simmel/urxvt-resize-font/master/resize-font -qP $HOME/.urxvt/ext/
 fi
 
 # setup tmux
 ln -sf $HOME/.dotfiles/.tmux.conf $HOME/.tmux.conf
 
 # setup neovim
-ln -sf $HOME/.dotfiles/nvim $HOME/.config/nvim
+mkdir -p $HOME/.config/nvim
+ln -sf $HOME/.dotfiles/nvim/* $HOME/.config/nvim/
 
 # install nvm
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
@@ -102,10 +107,7 @@ if [[ "$(uname -s)" == "Linux" ]]; then
   mkdir -p $FONTDIR
 fi
 
-wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf -qP $FONTDIR 
-wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf -qP $FONTDIR
-wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf -qP $FONTDIR
-wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf -qP $FONTDIR
+wget https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Hack/Regular/complete/Hack%20Regular%20Nerd%20Font%20Complete.ttf -qP $FONTDIR
 
 if [[ "$(uname -s)" == "Linux" ]]; then
   # set zsh to default shell
