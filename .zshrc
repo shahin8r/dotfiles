@@ -1,13 +1,11 @@
 export PATH="$HOME/bin:$PATH"
 export ZSH="$HOME/.oh-my-zsh"
-export VISUAL=vim
+export VISUAL=nvim
+export LESSCHARSET=UTF-8
 export EDITOR="$VISUAL"
 
-# adding aws elastic beanstalk cli to path on linux
-if [[ "$(uname -s)" == "Linux" ]]; then
-  export PATH="$HOME/.pyenv/versions/3.7.2/bin:$PATH"
-  export PATH="$HOME/.ebcli-virtual-env/executables:$PATH"
-fi
+
+alias vim="nvim"
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
@@ -25,4 +23,4 @@ PROMPT_EOL_MARK=''
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/bin/terraform terraform
 
-export LESSCHARSET=UTF-8
+
