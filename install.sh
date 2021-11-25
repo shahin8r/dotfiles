@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-git clone https://github.com/shahin8r/dotfiles.git $HOME/.dotfiles
+#git clone https://github.com/shahin8r/dotfiles.git $HOME/.dotfiles
 ln -sf $HOME/.dotfiles/.gitconfig $HOME
 ln -sf $HOME/.dotfiles/.vimrc $HOME
 
@@ -9,7 +9,7 @@ if [[ "$(uname -s)" == "Darwin" ]]; then
   bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
   brew install git zsh node wget tmux vim pv yarn nvm awscli aws-elasticbeanstalk jq htop mpv ranger ncdu terraform blueutil nload docker-credential-helper-ecr act mysql-client
-  brew install --cask aws-vault iterm2 visual-studio-code docker google-chrome slack spotify telegram-desktop notion figma keepingyouawake kitty sequel-ace poedit transmission keeweb peco
+  brew install --cask aws-vault iterm2 visual-studio-code docker google-chrome slack spotify telegram-desktop keepingyouawake sequel-ace transmission peco
 
   # disable press and hold for vscode so we can use vim keybindings
   defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
@@ -17,10 +17,7 @@ fi
 
 if [[ "$(uname -s)" == "Linux" ]]; then
   sudo apt update
-  sudo apt install -y awscli curl vim build-essential nodejs npm tmux pv zsh htop jq mpv ranger ncdu telegram-desktop slack-desktop telegram-desktop nload amazon-ecr-credential-helper kitty transmission mysql-client peco light compton feh i3 rofi xss-lock
-
-  # set kitty as default terminal in gnome
-  gsettings set org.gnome.desktop.default-applications.terminal exec 'kitty'
+  sudo apt install -y zsh awscli curl python3-pip neovim vim build-essential nodejs npm tmux pv zsh htop jq mpv ranger ncdu telegram-desktop nload amazon-ecr-credential-helper transmission mysql-client peco light compton feh i3 rofi xss-lock
 
   # install vscode
   wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
@@ -48,9 +45,7 @@ if [[ "$(uname -s)" == "Linux" ]]; then
   sudo chmod 755 /usr/local/bin/aws-vault
 
   # install aws-elasticbeanstalk
-  sudo apt install -y build-essential zlib1g-dev libssl-dev libncurses-dev libffi-dev libsqlite3-dev libreadline-dev libbz2-dev
-  git clone https://github.com/aws/aws-elastic-beanstalk-cli-setup.git /tmp
-  /tmp/aws-elastic-beanstalk-cli-setup/scripts/bundled_installer
+  pip install awsebcli
 
   # install yarn
   npm install -g yarn
@@ -84,11 +79,6 @@ ln -sf $HOME/.dotfiles/.tmux.conf $HOME/.tmux.conf
 
 # setup neovim
 ln -sf $HOME/.dotfiles/nvim $HOME/.config/nvim
-
-# setup kitty config
-mkdir -p $HOME/.config/kitty
-ln -sf $HOME/.dotfiles/kitty.conf $HOME/.config/kitty
-ln -sf $HOME/.dotfiles/kitty_zoom_toggle.py $HOME/.config/kitty
 
 # install nvm
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
