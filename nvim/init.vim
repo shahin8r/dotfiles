@@ -55,6 +55,7 @@ nnoremap <silent> <Leader>p :Files<CR>
 nnoremap <silent> <Leader>f :Rg<CR>
 nnoremap <C-n> :NERDTreeToggle<CR>
 nnoremap <Leader>c :nohl<CR>
+nnoremap <Leader>tt :tab split<CR>
 
 set listchars=space:·
 
