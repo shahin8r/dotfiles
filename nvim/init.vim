@@ -12,9 +12,10 @@ call plug#begin('~/.vim/plugged')
   Plug 'preservim/nerdtree'
   Plug 'tpope/vim-rhubarb'
   Plug 'ryanoasis/vim-devicons'
+  Plug 'pantharshit00/vim-prisma'
 call plug#end()
 
-let g:coc_global_extensions = ['coc-tsserver', 'coc-angular', 'coc-prettier', 'coc-phpls', 'coc-php-cs-fixer']
+let g:coc_global_extensions = ['coc-tsserver', 'coc-angular', 'coc-prettier', 'coc-phpls', 'coc-php-cs-fixer', 'coc-prisma']
 source $HOME/.config/nvim/coc.vim
 
 set background=dark
