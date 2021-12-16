@@ -169,6 +169,8 @@ bindsym XF86MonBrightnessDown exec light -U 10 # decrease screen brightness
 # lock screen
 exec --no-startup-id xss-lock -l $HOME/bin/i3-lock-screen.sh
 
+bindsym $mod+Shift+P --release exec "scrot -se 'mv $f /tmp && xclip -selection clipboard -t image/png -i /tmp/$n'"
+
 bar {
   status_command i3status
 }
