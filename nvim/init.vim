@@ -7,8 +7,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'tpope/vim-fugitive'
   Plug 'airblade/vim-gitgutter'
-  Plug 'vim-airline/vim-airline'
-  Plug 'vim-airline/vim-airline-themes'
   Plug 'preservim/nerdtree'
   Plug 'tpope/vim-rhubarb'
   Plug 'ryanoasis/vim-devicons'
@@ -48,6 +46,8 @@ hi Whitespace ctermbg=black ctermfg=59
 hi TabLine ctermbg=black ctermfg=59
 hi TabLineSel ctermbg=black ctermfg=255
 hi NonText ctermbg=black ctermfg=59
+hi StatusLine ctermbg=236 ctermfg=252
+hi StatusLineNc ctermbg=233 ctermfg=242
 
 imap jj <Esc>
 nnoremap <silent> <C-p> :GFiles<CR>
@@ -59,7 +59,9 @@ nnoremap <Leader>tt :tab split<CR>
 
 set listchars=space:·
 
-let g:airline_powerline_fonts = 2
+set statusline=\ %{pathshorten(expand('%:f'))}
+set statusline+=\ %(\[%{fugitive#head()}]%)
+set statusline+=\ %m%r%y%w%=C:\%c\ L:\%l\/\%L\ 
 
 autocmd BufWritePost *.php silent! call CocCommand php-cs-fixer.fix
 
