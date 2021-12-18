@@ -1,7 +1,6 @@
 #!/bin/bash
 
-
-#git clone https://github.com/shahin8r/dotfiles.git $HOME/.dotfiles
+git clone https://github.com/shahin8r/dotfiles.git $HOME/.dotfiles
 ln -sf $HOME/.dotfiles/.gitconfig $HOME
 ln -sf $HOME/.dotfiles/.vimrc $HOME
 

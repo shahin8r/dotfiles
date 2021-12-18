@@ -4,12 +4,11 @@ export VISUAL=nvim
 export LESSCHARSET=UTF-8
 export EDITOR="$VISUAL"
 
-
 alias vim="nvim"
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
-plugins=(git zsh-autosuggestions)
+plugins=(git zsh-autosuggestions ssh-agent)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -22,5 +21,4 @@ PROMPT_EOL_MARK=''
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/bin/terraform terraform
-
 
