@@ -1,5 +1,5 @@
 call plug#begin('~/.vim/plugged')
-  Plug 'flazz/vim-colorschemes'
+  Plug 'nanotech/jellybeans.vim'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
   Plug 'pangloss/vim-javascript'
