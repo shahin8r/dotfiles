@@ -16,7 +16,6 @@ source $HOME/.config/nvim/coc.vim
 
 set background=dark
 set syntax
-set number relativenumber
 set nu rnu
 set updatetime=100
 set scrolloff=10
@@ -49,14 +48,15 @@ hi StatusLine ctermbg=236 ctermfg=252
 hi StatusLineNc ctermbg=233 ctermfg=242
 
 imap jj <Esc>
+let mapleader=","
 nnoremap <silent> <C-p> :GFiles<CR>
 nnoremap <silent> <Leader>p :Files<CR>
 nnoremap <silent> <Leader>b :Buffers<CR>
 nnoremap <silent> <Leader>f :Rg<CR>
 nnoremap <Leader>c :nohl<CR>
 nnoremap <Leader>tt :tab split<CR>
-
-set listchars=space:·
+nnoremap <Leader>gcc :Commits<CR>
+nnoremap <Leader>gcf :BCommits<CR>
 
 set statusline=\ %{pathshorten(expand('%:f'))}
 set statusline+=\ %(\[%{fugitive#head()}]%)
