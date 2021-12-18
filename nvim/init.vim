@@ -52,6 +52,7 @@ hi StatusLineNc ctermbg=233 ctermfg=242
 imap jj <Esc>
 nnoremap <silent> <C-p> :GFiles<CR>
 nnoremap <silent> <Leader>p :Files<CR>
+nnoremap <silent> <Leader>b :Buffers<CR>
 nnoremap <silent> <Leader>f :Rg<CR>
 nnoremap <C-n> :NERDTreeToggle<CR>
 nnoremap <Leader>c :nohl<CR>
