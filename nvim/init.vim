@@ -40,7 +40,7 @@ hi LineNr ctermbg=black
 hi CursorLineNr ctermbg=black ctermfg=59
 hi GitGutterAdd ctermbg=black
 hi GitGutterChange ctermbg=black
-hi GitGutterDelete ctermbg=black
+hi GitGutterDelete ctermbg=black ctermfg=red
 hi GitGutterChangeDelete ctermbg=black
 hi Whitespace ctermbg=black ctermfg=59
 hi TabLine ctermbg=black ctermfg=59
