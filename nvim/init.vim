@@ -29,6 +29,7 @@ set signcolumn=auto
 set cmdheight=1
 set noswapfile
 set nowrap
+set hidden
 
 colorscheme jellybeans
 
