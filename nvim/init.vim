@@ -7,9 +7,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'tpope/vim-fugitive'
   Plug 'airblade/vim-gitgutter'
-  Plug 'preservim/nerdtree'
   Plug 'tpope/vim-rhubarb'
-  Plug 'ryanoasis/vim-devicons'
   Plug 'pantharshit00/vim-prisma'
 call plug#end()
 
@@ -54,7 +52,6 @@ nnoremap <silent> <C-p> :GFiles<CR>
 nnoremap <silent> <Leader>p :Files<CR>
 nnoremap <silent> <Leader>b :Buffers<CR>
 nnoremap <silent> <Leader>f :Rg<CR>
-nnoremap <C-n> :NERDTreeToggle<CR>
 nnoremap <Leader>c :nohl<CR>
 nnoremap <Leader>tt :tab split<CR>
 
