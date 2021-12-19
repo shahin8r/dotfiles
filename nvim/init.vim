@@ -11,6 +11,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'pantharshit00/vim-prisma'
 call plug#end()
 
+let g:netrw_liststyle = 3
+let g:netrw_dirhistmax = 0
 let g:coc_global_extensions = ['coc-tsserver', 'coc-angular', 'coc-prettier', 'coc-phpls', 'coc-php-cs-fixer', 'coc-prisma']
 source $HOME/.config/nvim/coc.vim
 
