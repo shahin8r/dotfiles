@@ -29,23 +29,24 @@ set cmdheight=1
 set noswapfile
 set nowrap
 set hidden
+set termguicolors
 
 colorscheme jellybeans
 
-hi Normal ctermbg=black
-hi SignColumn ctermbg=black
-hi LineNr ctermbg=black
-hi CursorLineNr ctermbg=black ctermfg=59
-hi GitGutterAdd ctermbg=black
-hi GitGutterChange ctermbg=black
-hi GitGutterDelete ctermbg=black ctermfg=red
-hi GitGutterChangeDelete ctermbg=black
-hi Whitespace ctermbg=black ctermfg=59
-hi TabLine ctermbg=black ctermfg=59
-hi TabLineSel ctermbg=black ctermfg=255
-hi NonText ctermbg=black ctermfg=59
-hi StatusLine ctermbg=236 ctermfg=252
-hi StatusLineNc ctermbg=233 ctermfg=242
+hi Normal guibg=none
+hi SignColumn guibg=none
+hi LineNr guibg=none
+hi CursorLineNr guibg=none guifg=#666666
+hi GitGutterAdd guibg=none
+hi GitGutterChange guibg=none
+hi GitGutterDelete guibg=none
+hi GitGutterChangeDelete guibg=none
+hi TabLine guibg=none guifg=#666666
+hi TabLineSel guibg=none guifg=#ffffff
+hi NonText guibg=none guifg=#666666
+hi StatusLine guibg=#222222 guifg=#cccccc
+hi StatusLineNc guibg=#111111 guifg=#666666
+hi VertSplit guibg=none guifg=#222222
 
 imap jj <Esc>
 let mapleader=","
