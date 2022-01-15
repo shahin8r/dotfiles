@@ -7,3 +7,6 @@ if [[ $KBD_LAYOUT == "us" ]]; then
 else
   setxkbmap us
 fi
+
+setxkbmap -option ctrl:nocaps
+
