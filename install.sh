@@ -72,9 +72,13 @@ if [[ "$(uname -s)" == "Linux" ]]; then
   # setup gtk settings
   ln -sf $HOME/.dotfiles/gtk-3.0-settings.conf $HOME/.config/gtk-3.0/settings.ini
 
-  # setup urxvt
+  # install st
+  sudo apt install -y libxft-dev
+  mkdir -p $HOME/src
+  git clone https://github.com/shahin8r/st.git $HOME/src/st
+  cd $HOME/src/st && sudo make clean install
+
   ln -sf $HOME/.dotfiles/.Xresources $HOME/.Xresources
-  wget https://raw.githubusercontent.com/simmel/urxvt-resize-font/master/resize-font -qP $HOME/.urxvt/ext/
 fi
 
 # setup tmux

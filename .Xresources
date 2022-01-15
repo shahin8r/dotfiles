@@ -5,15 +5,6 @@ Xft.hinting: 1
 Xft.antialias: 1
 Xft.rgba: rgb
 
-URxvt*background:Black
-URxvt*foreground:White
-URxvt*scrollBar:false
-URxvt.font: xft:Hack NF::size=9
-URxvt.letterSpace: -1
-URxvt.internalBorder: 20
-
-urxvt.perl-ext-common: resize-font
-
 ! special
 *.foreground:   #c5c8c6
 *.background:   #000000
