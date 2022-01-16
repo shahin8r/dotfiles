@@ -10,8 +10,10 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-rhubarb'
   Plug 'pantharshit00/vim-prisma'
   Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+  Plug 'puremourning/vimspector'
 call plug#end()
 
+let g:vimspector_enable_mappings = 'HUMAN'
 let g:netrw_liststyle = 3
 let g:netrw_dirhistmax = 0
 let g:coc_global_extensions = ['coc-tsserver', 'coc-angular', 'coc-prettier', 'coc-phpls', 'coc-php-cs-fixer', 'coc-prisma']
@@ -27,16 +29,18 @@ set autoindent
 set expandtab
 set shiftwidth=2
 set tabstop=2
-set signcolumn=auto
+set signcolumn=auto:2
 set cmdheight=1
 set noswapfile
 set nowrap
 set hidden
 set termguicolors
+set foldmethod=indent
+set foldlevelstart=99
 
 colorscheme jellybeans
 
-hi Normal guibg=none
+hi Normal guibg=none guifg=#eeeeee
 hi SignColumn guibg=none
 hi LineNr guibg=none
 hi CursorLineNr guibg=none guifg=#666666
@@ -45,7 +49,7 @@ hi GitGutterChange guibg=none
 hi GitGutterDelete guibg=none
 hi GitGutterChangeDelete guibg=none
 hi TabLine guibg=none guifg=#666666
-hi TabLineSel guibg=none guifg=#ffffff
+hi TabLineSel guibg=none guifg=#eeeeee
 hi NonText guibg=none guifg=#666666
 hi StatusLine guibg=#222222 guifg=#cccccc
 hi StatusLineNc guibg=#111111 guifg=#666666
@@ -66,5 +70,5 @@ set statusline=\ %{pathshorten(expand('%:f'))}
 set statusline+=\ %(\[%{fugitive#head()}]%)
 set statusline+=\ %m%r%y%w%=C:\%c\ L:\%l\/\%L\ 
 
-autocmd BufWritePost *.php silent! call CocCommand php-cs-fixer.fix
+autocmd BufWritePre /**/struqtur*/**/*.php :Format
 
