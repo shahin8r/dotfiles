@@ -17,13 +17,14 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+t exec urxvt
+bindsym $mod+t exec st
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # launch rofi application launcher
 bindsym $mod+Return exec --no-startup-id rofi -show drun
+bindsym $mod+Shift+Return exec --no-startup-id rofi -show run
 
 # change focus
 bindsym $mod+h focus left
