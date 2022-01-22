@@ -7,7 +7,7 @@ ln -sf $HOME/.dotfiles/.vimrc $HOME
 if [[ "$(uname -s)" == "Darwin" ]]; then
   bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-  brew install git zsh node wget tmux neovim vim pv yarn nvm awscli aws-elasticbeanstalk jq htop mpv ranger ncdu terraform blueutil nload docker-credential-helper-ecr act mysql-client ripgrep
+  brew install git zsh node wget tmux neovim vim pv yarn nvm awscli aws-elasticbeanstalk jq htop mpv ranger ncdu terraform blueutil nload docker-credential-helper-ecr act mysql-client ripgrep fzf
   brew install --cask aws-vault iterm2 visual-studio-code docker google-chrome slack spotify telegram-desktop keepingyouawake sequel-ace transmission peco
 
   # disable press and hold for vscode so we can use vim keybindings
@@ -16,7 +16,7 @@ fi
 
 if [[ "$(uname -s)" == "Linux" ]]; then
   sudo apt update
-  sudo apt install -y zsh awscli curl python3-pip neovim vim build-essential nodejs npm tmux pv zsh htop jq mpv ranger ncdu telegram-desktop nload amazon-ecr-credential-helper transmission mysql-client peco light compton feh i3 rofi xss-lock ripgrep xinput rxvt-unicode scrot
+  sudo apt install -y zsh awscli curl python3-pip neovim vim build-essential nodejs npm tmux pv zsh htop jq mpv ranger ncdu telegram-desktop nload amazon-ecr-credential-helper transmission mysql-client peco light compton feh i3 rofi xss-lock ripgrep xinput rxvt-unicode scrot fzf
 
   # install vscode
   wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
