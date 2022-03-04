@@ -1,0 +1,6 @@
+#!/bin/sh
+
+setxkbmap -option ctrl:nocaps
+xset r rate 220 60
+xinput set-prop 'pointer:Logitech MX Master 3' 300 -0.9
+

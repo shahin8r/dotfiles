@@ -147,7 +147,7 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-exec_always --no-startup-id setxkbmap -option ctrl:nocaps
+exec_always --no-startup-id kbd-mouse-setup
 
 bindsym $mod+b exec --no-startup-id sensible-browser
 bindsym Control+space exec --no-startup-id toggle_keyboard_layout.sh
