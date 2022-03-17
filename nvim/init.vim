@@ -18,13 +18,14 @@ let g:vimspector_enable_mappings = 'HUMAN'
 let g:netrw_liststyle = 3
 let g:netrw_dirhistmax = 0
 let g:coc_global_extensions = ['coc-tsserver', 'coc-angular', 'coc-prettier', 'coc-phpls', 'coc-php-cs-fixer', 'coc-prisma']
+
+let mapleader=","
 source $HOME/.config/nvim/coc.vim
 
 set background=dark
 set syntax
 set nu rnu
 set updatetime=100
-set scrolloff=10
 set autoread
 set autoindent 
 set expandtab
@@ -38,6 +39,8 @@ set hidden
 set termguicolors
 set foldmethod=indent
 set foldlevelstart=99
+set ignorecase
+set smartcase
 
 colorscheme jellybeans
 
@@ -57,11 +60,11 @@ hi StatusLineNc guibg=#111111 guifg=#666666
 hi VertSplit guibg=none guifg=#222222
 
 imap jj <Esc>
-let mapleader=","
 nnoremap <silent> <C-p> :GFiles<CR>
 nnoremap <silent> <Leader>p :Files<CR>
 nnoremap <silent> <Leader>b :Buffers<CR>
 nnoremap <silent> <Leader>f :Rg<CR>
+nnoremap <silent> <Leader>m :Marks<CR>
 nnoremap <Leader>c :nohl<CR>
 nnoremap <Leader>tt :tab split<CR>
 nnoremap <Leader>gcc :Commits<CR>
