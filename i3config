@@ -28,8 +28,8 @@ bindsym $mod+t exec st
 bindsym $mod+Shift+q kill
 
 # launch rofi application launcher
-bindsym $mod+Return exec --no-startup-id rofi -show drun
-bindsym $mod+Shift+Return exec --no-startup-id rofi -show run
+bindsym $mod+Return exec --no-startup-id rofi -show drun -theme Monokai
+bindsym $mod+Shift+Return exec --no-startup-id rofi -show run -theme Monokai
 
 # change focus
 bindsym $mod+h focus left
