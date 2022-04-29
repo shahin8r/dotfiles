@@ -151,7 +151,7 @@ bindsym $mod+r mode "resize"
 exec_always --no-startup-id kbd-mouse-setup
 
 bindsym $mod+b exec --no-startup-id sensible-browser
-bindsym Control+space exec --no-startup-id toggle_keyboard_layout.sh
+bindsym Control+space exec --no-startup-id notify-send -t 1000 -i keyboard "KBD: $(toggle_keyboard_layout.sh)"
 
 # i3 window colors
 client.focused #222222 #222222 #ffffff #222222 #222222
