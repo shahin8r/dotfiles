@@ -2,6 +2,7 @@ export PATH="$HOME/bin:$PATH"
 export ZSH="$HOME/.oh-my-zsh"
 export VISUAL=nvim
 export LESSCHARSET=UTF-8
+export LESS='-R --use-color'
 export EDITOR="$VISUAL"
 
 alias vim="nvim"
