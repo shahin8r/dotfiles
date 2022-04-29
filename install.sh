@@ -1,22 +1,11 @@
 #!/bin/bash
 
-git clone https://github.com/shahin8r/dotfiles.git $HOME/.dotfiles
+git clone git@github.com:shahin8r/dotfiles.git $HOME/.dotfiles
 ln -sf $HOME/.dotfiles/.gitconfig $HOME
-ln -sf $HOME/.dotfiles/.vimrc $HOME
-
-if [[ "$(uname -s)" == "Darwin" ]]; then
-  bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-  brew install git zsh node wget tmux neovim vim pv yarn nvm awscli aws-elasticbeanstalk jq htop mpv ranger ncdu terraform blueutil nload docker-credential-helper-ecr act mysql-client ripgrep fzf
-  brew install --cask aws-vault iterm2 visual-studio-code docker google-chrome slack spotify telegram-desktop keepingyouawake sequel-ace transmission peco
-
-  # disable press and hold for vscode so we can use vim keybindings
-  defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
-fi
 
 if [[ "$(uname -s)" == "Linux" ]]; then
   sudo apt update
-  sudo apt install -y zsh awscli curl python3-pip neovim vim build-essential nodejs npm tmux pv zsh htop jq mpv ranger ncdu telegram-desktop nload amazon-ecr-credential-helper transmission mysql-client peco light compton feh i3 rofi xss-lock ripgrep xinput rxvt-unicode scrot fzf xsel
+  sudo apt install -y zsh awscli curl python3-pip neovim vim build-essential nodejs npm tmux pv zsh htop jq mpv ranger ncdu telegram-desktop nload amazon-ecr-credential-helper transmission mysql-client peco light compton feh i3 rofi xss-lock ripgrep xinput scrot fzf xsel hsetroot
 
   # install vscode
   wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
@@ -46,9 +35,6 @@ if [[ "$(uname -s)" == "Linux" ]]; then
   # install aws-elasticbeanstalk
   pip install awsebcli
 
-  # install yarn
-  npm install -g yarn
-
   # install google-chrome
   wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -P /tmp
   sudo apt install -y /tmp/google-chrome-stable_current_amd64.deb
@@ -62,12 +48,8 @@ if [[ "$(uname -s)" == "Linux" ]]; then
   ln -sf $HOME/.dotfiles/i3config $HOME/.config/i3/config
   ln -sf $HOME/.dotfiles/.i3status.conf $HOME
 
-  # setup compton
-  ln -sf $HOME/.dotfiles/compton.conf $HOME/.config
-
-  # setup rofi
-  mkdir -p $HOME/.config/rofi
-  ln -sf $HOME/.dotfiles/rofi-config $HOME/.config/rofi/config
+  # setup picom
+  ln -sf $HOME/.dotfiles/picom.conf $HOME/.config
 
   # setup gtk settings
   ln -sf $HOME/.dotfiles/gtk-3.0-settings.conf $HOME/.config/gtk-3.0/settings.ini
