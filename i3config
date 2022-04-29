@@ -2,6 +2,8 @@ set $mod Mod4
 
 font pango:monospace 8
 
+exec --no-startup-id xautolock -time 2 -locker 'i3-lock-screen.sh' -notify 15 -notifier "notify-send 'Screen will lock in 15s'" -detectsleep -killtime 10 -killer "systemctl suspend"
+
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
