@@ -57,10 +57,15 @@ if [[ "$(uname -s)" == "Linux" ]]; then
   # install st
   sudo apt install -y libxft-dev
   mkdir -p $HOME/src
-  git clone https://github.com/shahin8r/st.git $HOME/src/st
+  git clone git@github.com:shahin8r/st.git $HOME/src/st
   cd $HOME/src/st && sudo make clean install
 
   ln -sf $HOME/.dotfiles/.Xresources $HOME/.Xresources
+
+  # install rofi-calc
+  sudo apt install -y rofi-dev qalc libtool autoconf
+  git clone git@github.com:svenstaro/rofi-calc.git $HOME/src/rofi-calc
+  cd $HOME/src/rofi-calc && autoreconf -i && mkdir $HOME/src/rofi-calc/build && cd $HOME/src/rofi-calc/build && $HOME/src/rofi-calc/configure && make && sudo make install
 fi
 
 # setup tmux

@@ -36,6 +36,7 @@ bindsym $mod+Shift+q kill
 # launch rofi application launcher
 bindsym $mod+Return exec --no-startup-id rofi -show drun -theme Monokai
 bindsym $mod+Shift+Return exec --no-startup-id rofi -show run -theme Monokai
+bindsym $mod+Control+Return exec --no-startup-id rofi -show calc -theme Monokai -modi calc -no-show-match -no-sort -no-history -lines 0 -calc-command "echo -n '{result}' | xclip -selection clipboard"
 
 # change focus
 bindsym $mod+h focus left
