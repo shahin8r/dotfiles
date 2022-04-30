@@ -5,7 +5,7 @@ ln -sf $HOME/.dotfiles/.gitconfig $HOME
 
 if [[ "$(uname -s)" == "Linux" ]]; then
   sudo apt update
-  sudo apt install -y zsh awscli curl python3-pip neovim vim build-essential nodejs npm tmux pv zsh htop jq mpv ranger ncdu telegram-desktop nload amazon-ecr-credential-helper transmission mysql-client peco light compton feh i3 rofi xss-lock ripgrep xinput scrot fzf xsel hsetroot
+  sudo apt install -y zsh awscli curl python3-pip neovim vim build-essential nodejs npm tmux pv zsh htop jq mpv ranger ncdu telegram-desktop nload amazon-ecr-credential-helper transmission mysql-client peco light compton feh i3 rofi xss-lock ripgrep xinput scrot fzf xsel hsetroot playerctl
 
   # install vscode
   wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
