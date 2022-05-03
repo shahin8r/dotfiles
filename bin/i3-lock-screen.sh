@@ -1,4 +1,8 @@
 #!/bin/bash
+if [[ $(pactl list | grep RUNNING) ]]; then
+  exit
+fi
+
 dunst set-paused true
 
 img=$(mktemp /tmp/XXXXXXXXXX.png)
