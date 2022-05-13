@@ -10,5 +10,3 @@ else
   echo 'US'
 fi
 
-setxkbmap -option ctrl:nocaps
-
