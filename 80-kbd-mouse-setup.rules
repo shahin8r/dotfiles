@@ -1,0 +1,1 @@
+ACTION=="bind", ATTRS{idVendor}=="046d", ATTRS{idProduct}=="c52b", ENV{DISPLAY}=":1", ENV{XAUTHORITY}="/run/user/1000/gdm/Xauthority", RUN+="/home/shahin/.dotfiles/bin/kbd-mouse-setup"

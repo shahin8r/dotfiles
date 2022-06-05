@@ -92,6 +92,7 @@ if [[ "$(uname -s)" == "Darwin" ]]; then
   FONTDIR=$HOME/Library/Fonts
 fi
 
+
 if [[ "$(uname -s)" == "Linux" ]]; then
   FONTDIR=$HOME/.local/share/fonts
   mkdir -p $FONTDIR
@@ -106,6 +107,8 @@ if [[ "$(uname -s)" == "Linux" ]]; then
   # update font cache
   fc-cache -f $FONTDIR
 fi
+
+ln -sf $HOME/.dotfiles/80-kbd-mouse-setup.rules /etc/udev/rules.d/80-kbd-mouse-setup.rules
 
 chmod +x $HOME/.dotfiles/bin/*
 mkdir -p $HOME/bin
