@@ -71,7 +71,7 @@ nnoremap <Leader>gcc :Commits<CR>
 nnoremap <Leader>gcf :BCommits<CR>
 
 set statusline=\ %{pathshorten(expand('%:f'))}
-set statusline+=\ %(\[%{fugitive#head()}]%)
+set statusline+=\ %(\[%{FugitiveHead()}]%)
 set statusline+=\ %m%r%y%w%=C:\%c\ L:\%l\/\%L\ 
 
 autocmd BufWritePre /**/struqtur*/**/*.php :Format
