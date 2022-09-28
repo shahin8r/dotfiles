@@ -66,6 +66,9 @@ if [[ "$(uname -s)" == "Linux" ]]; then
   sudo apt install -y rofi-dev qalc libtool autoconf
   git clone git@github.com:svenstaro/rofi-calc.git $HOME/src/rofi-calc
   cd $HOME/src/rofi-calc && autoreconf -i && mkdir $HOME/src/rofi-calc/build && cd $HOME/src/rofi-calc/build && $HOME/src/rofi-calc/configure && make && sudo make install
+
+  # setup xorg keyboard config
+  sudo ln -sf $HOME/.dotfiles/00-keyboard.conf /etc/X11/xorg.conf.d/00-keyboard.conf
 fi
 
 # setup tmux
