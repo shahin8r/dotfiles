@@ -2,7 +2,7 @@ set $mod Mod4
 
 font pango:monospace 8
 
-exec --no-startup-id xautolock -time 2 -locker 'i3-lock-screen.sh' -notify 15 -notifier "pactl list | grep RUNNING || notify-send 'Screen will lock in 15s'" -detectsleep -killtime 10 -killer "systemctl suspend"
+exec_always --no-startup-id xautolock -time 2 -locker 'i3-lock-screen.sh' -detectsleep -killtime 10 -killer "systemctl suspend"
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -163,6 +163,7 @@ exec_always --no-startup-id kbd-mouse-setup
 
 bindsym $mod+b exec --no-startup-id sensible-browser
 bindsym $mod+n exec --no-startup-id dunstctl is-paused | grep false && notify-send -t 1000 'Notifications disabled' && sleep 1 && dunstctl set-paused true || dunstctl set-paused false && notify-send -t 1000 'Notifications enabled'
+bindsym $mod+F1 exec --no-startup-id toggle_screen_awake.sh
 
 # i3 window colors
 client.focused #222222 #222222 #ffffff #222222 #222222
@@ -174,9 +175,6 @@ client.background #000000
 # enable monitor brightness keys (requires light)
 bindsym XF86MonBrightnessUp exec light -A 10 # increase screen brightness
 bindsym XF86MonBrightnessDown exec light -U 10 # decrease screen brightness
-
-# lock screen
-exec --no-startup-id xss-lock -l $HOME/bin/i3-lock-screen.sh
 
 bindsym $mod+Shift+P --release exec "scrot -s -f -e 'mv $f /tmp && xclip -selection clipboard -t image/png -i /tmp/$n'"
 

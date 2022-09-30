@@ -1,6 +1,13 @@
 #!/bin/bash
-if [[ $(pactl list | grep RUNNING) ]]; then
-  exit
+if [! -f "/tmp/screen_awake"]; then
+  exit 0
+fi
+
+notify-send 'Locking screen in 15s'
+sleep 15s
+
+if [! -f "/tmp/screen_awake"]; then
+  exit 0
 fi
 
 dunst set-paused true
