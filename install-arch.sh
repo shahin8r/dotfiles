@@ -102,6 +102,7 @@ log 'install bluetooth'
 sudo pacman -S bluez bluez-utils
 
 log 'install fonts'
+sudo pacman -S ttf-dejavu
 FONTDIR=$HOME/.local/share/fonts
 mkdir -p $FONTDIR
 
