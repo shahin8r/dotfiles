@@ -1,13 +1,16 @@
 #!/bin/bash
-if [! -f "/tmp/screen_awake"]; then
+
+if [ -f "/tmp/screen_awake" ]; then
   exit 0
 fi
 
-notify-send 'Locking screen in 15s'
-sleep 15s
+if [ -z "$XSS_SLEEP_LOCK_FD" ]; then
+  notify-send 'Locking screen in 15s'
+  sleep 15s
 
-if [! -f "/tmp/screen_awake"]; then
-  exit 0
+  if [ -f "/tmp/screen_awake" ]; then
+    exit 0
+  fi
 fi
 
 dunst set-paused true
