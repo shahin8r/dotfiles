@@ -161,7 +161,7 @@ bindsym $mod+r mode "resize"
 
 exec_always --no-startup-id kbd-mouse-setup
 
-bindsym $mod+b exec --no-startup-id sensible-browser
+bindsym $mod+b exec --no-startup-id google-chrome-stable
 bindsym $mod+n exec --no-startup-id dunstctl is-paused | grep false && notify-send -t 1000 'Notifications disabled' && sleep 1 && dunstctl set-paused true || dunstctl set-paused false && notify-send -t 1000 'Notifications enabled'
 bindsym $mod+F1 exec --no-startup-id toggle_screen_awake.sh
 
