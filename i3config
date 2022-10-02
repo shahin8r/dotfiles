@@ -159,6 +159,7 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+exec --no-startup-id xss-lock -l $HOME/bin/i3-lock-screen.sh
 exec_always --no-startup-id kbd-mouse-setup
 
 bindsym $mod+b exec --no-startup-id google-chrome-stable

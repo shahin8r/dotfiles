@@ -16,7 +16,7 @@ git remote set-url origin git@github.com:shahin8r/dotfiles.git
 ln -sf $HOME/.dotfiles/.gitconfig $HOME
 cd $HOME
 
-sudo pacman -S --noconfirm openssh man zsh aws-cli curl neovim vim nodejs npm tmux pv htop jq mpv ranger ncdu telegram-desktop nload transmission-gtk mariadb-clients peco light compton feh i3-gaps i3status rofi xss-lock ripgrep xorg-xinput scrot fzf xsel hsetroot playerctl xautolock bat python-pip networkmanager dunst
+sudo pacman -S --noconfirm openssh man zsh aws-cli curl neovim vim nodejs npm tmux pv htop jq mpv ranger ncdu telegram-desktop nload transmission-gtk mariadb-clients peco light compton feh i3-gaps i3status rofi xss-lock ripgrep xorg-xinput scrot fzf xsel hsetroot playerctl xautolock bat python-pip networkmanager dunst imagemagick i3lock
 
 log 'install yay'
 sudo pacman -S --needed base-devel git
@@ -37,6 +37,9 @@ sudo pacman -S --noconfirm terraform
 log 'install aws-vault'
 sudo curl -Lo /usr/local/bin/aws-vault https://github.com/99designs/aws-vault/releases/latest/download/aws-vault-linux-amd64
 sudo chmod 755 /usr/local/bin/aws-vault
+
+log 'install adwaita gtk theme'
+sudo pacman -S --noconfirm gnome-themes-extra
 
 log 'install 1password'
 yay -S --noconfirm 1password
