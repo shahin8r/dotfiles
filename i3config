@@ -189,3 +189,5 @@ bar {
 
 for_window [class="1Password"] floating enable, resize set 1200 900, move absolute position center
 for_window [class="Org.gnome.Nautilus"] floating enable, resize set 1200 900, move absolute position center
+
+title_align center
