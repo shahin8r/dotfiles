@@ -2,5 +2,4 @@
 
 xset r rate 220 60
 xinput set-prop 'pointer:Logitech MX Master 3' 'libinput Accel Speed' -0.9
-setxkbmap us de_se_fi
 notify-send "Setting up kbd/mouse"
