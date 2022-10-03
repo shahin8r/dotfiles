@@ -68,8 +68,9 @@ ln -sf $HOME/.dotfiles/gtk-3.0-settings.conf $HOME/.config/gtk-3.0/settings.ini
 log 'install st'
 sudo pacman -S --noconfirm libxft
 mkdir -p $HOME/src
-git clone git@github.com:shahin8r/st.git $HOME/src/st
+git clone https://github.com/shahin8r/st.git $HOME/src/st
 cd $HOME/src/st && sudo make clean install
+git remote set-url origin git@github.com:shahin8r/st.git
 
 ln -sf $HOME/.dotfiles/.Xresources $HOME/.Xresources
 
