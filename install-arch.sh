@@ -16,7 +16,7 @@ git remote set-url origin git@github.com:shahin8r/dotfiles.git
 ln -sf $HOME/.dotfiles/.gitconfig $HOME
 cd $HOME
 
-sudo pacman -S --noconfirm openssh man zsh aws-cli curl neovim vim nodejs npm tmux pv htop jq mpv ranger ncdu telegram-desktop nload transmission-gtk mariadb-clients peco light compton feh i3-gaps i3status rofi xss-lock ripgrep xorg-xinput scrot fzf xsel hsetroot playerctl bat python-pip networkmanager dunst imagemagick i3lock
+sudo pacman -S --noconfirm openssh man zsh aws-cli curl neovim vim nodejs npm tmux pv htop jq mpv ranger ncdu telegram-desktop nload transmission-gtk mariadb-clients peco light compton feh i3-gaps rofi xss-lock ripgrep xorg-xinput scrot fzf xsel hsetroot playerctl bat python-pip networkmanager dunst imagemagick i3lock
 
 log 'install yay'
 sudo pacman -S --needed base-devel git
@@ -107,6 +107,11 @@ ln -sf $HOME/.dotfiles/.p10k.zsh $HOME
 
 log 'install bluetooth'
 sudo pacman -S bluez bluez-utils
+
+log 'install polybar'
+sudo pacman -S polybar
+ln -sf $HOME/.dotfiles/polybar/config.ini $HOME/.config/polybar/config.ini
+ln -sf $HOME/.dotfiles/polybar/launch.sh $HOME/.config/polybar/launch.sh
 
 log 'install fonts'
 sudo pacman -S ttf-dejavu
