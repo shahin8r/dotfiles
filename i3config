@@ -7,7 +7,7 @@ font pango:monospace 8
 exec --no-startup-id nm-applet
 
 exec --no-startup-id picom
-exec_always --no-startup-id hsetroot -solid "#000000"
+exec_always --no-startup-id hsetroot -solid "#151515"
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -177,10 +177,10 @@ bindsym $mod+n exec --no-startup-id dunstctl is-paused | grep false && notify-se
 bindsym $mod+F1 exec --no-startup-id toggle_screen_awake.sh
 
 # i3 window colors
-client.focused #222222 #222222 #ffffff #222222 #222222
+client.focused #444444 #444444 #ffffff #444444 #444444
 client.focused_inactive #111111 #111111 #999999 #111111 #111111
 client.unfocused #111111 #111111 #444444 #111111 #111111
-client.urgent #222222 #222222 #ff7777 #222222 #222222
+client.urgent #444444 #444444 #ff7777 #444444 #444444
 client.background #000000
 
 # enable monitor brightness keys (requires light)
