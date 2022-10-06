@@ -192,7 +192,11 @@ bindsym $mod+Shift+P --release exec "scrot -s -f -e 'mv $f /tmp && xclip -select
 for_window [class="1Password"] floating enable, resize set 1200 900, move absolute position center
 for_window [class="Org.gnome.Nautilus"] floating enable, resize set 1200 900, move absolute position center
 
-title_align center
+gaps inner 10
+default_border pixel 1
+for_window [class=".*"] border pixel 1
+
+smart_gaps on
 smart_borders on
 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
