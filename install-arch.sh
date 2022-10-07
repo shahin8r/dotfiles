@@ -42,19 +42,19 @@ log 'install adwaita gtk theme'
 sudo pacman -S --noconfirm gnome-themes-extra
 
 log 'install xidlehook'
-yay -S --noconfirm xidlehook
+yay -S --noconfirm --answerdiff=None xidlehook
 
 log 'install 1password'
-yay -S --noconfirm 1password
+yay -S --noconfirm --answerdiff=None 1password
 
 log 'install google-chrome'
-yay -S --noconfirm google-chrome
+yay -S --noconfirm --answerdiff=None google-chrome
 
 log 'install slack'
-yay -S --noconfirm slack-desktop
+yay -S --noconfirm --answerdiff=None slack-desktop
 
 log 'install spotify'
-yay -S --noconfirm spotify
+yay -S --noconfirm --answerdiff=None spotify
 
 log 'setup i3'
 mkdir -p $HOME/.config/i3
