@@ -16,7 +16,7 @@ git remote set-url origin git@github.com:shahin8r/dotfiles.git
 ln -sf $HOME/.dotfiles/.gitconfig $HOME
 cd $HOME
 
-sudo pacman -S --noconfirm openssh man zsh aws-cli curl neovim vim nodejs npm tmux pv htop jq mpv ranger ncdu telegram-desktop nload transmission-gtk mariadb-clients peco light compton feh i3-gaps rofi xss-lock ripgrep xorg-xinput scrot fzf xsel hsetroot playerctl bat python-pip networkmanager dunst imagemagick i3lock
+sudo pacman -S --noconfirm openssh man zsh aws-cli curl neovim vim nodejs npm tmux pv htop jq mpv ranger ncdu telegram-desktop nload transmission-gtk mariadb-clients peco light compton feh i3-gaps rofi xss-lock ripgrep xorg-xinput scrot fzf xsel hsetroot playerctl bat python-pip networkmanager dunst imagemagick i3lock wget
 
 log 'install yay'
 sudo pacman -S --noconfirm --needed base-devel git
@@ -66,7 +66,7 @@ ln -sf $HOME/.dotfiles/picom.conf $HOME/.config
 
 log 'setup gtk settings'
 mkdir -p $HOME/.config/gtk-3.0
-ln -sf $HOME/.dotfiles/gtk-3.0-settings.conf $HOME/.config/gtk-3.0/settings.ini
+ln -sf $HOME/.dotfiles/gtk-3.0-settings.ini $HOME/.config/gtk-3.0/settings.ini
 
 log 'install st'
 sudo pacman -S --noconfirm libxft
@@ -134,4 +134,4 @@ chmod +x $HOME/.dotfiles/bin/*
 mkdir -p $HOME/bin
 ln -sf $HOME/.dotfiles/bin/* $HOME/bin
 
-log "\nAll done! Log out and log in again.\n"
+log 'All done! Log out and log in again.'
