@@ -8,7 +8,7 @@ function log () {
   echo -e "---------------------\n"
 }
 
-sudo pacman -S git
+sudo pacman -S --noconfirm git
 
 git clone https://github.com/shahin8r/dotfiles.git $HOME/.dotfiles
 cd $HOME/.dotfiles
@@ -19,7 +19,7 @@ cd $HOME
 sudo pacman -S --noconfirm openssh man zsh aws-cli curl neovim vim nodejs npm tmux pv htop jq mpv ranger ncdu telegram-desktop nload transmission-gtk mariadb-clients peco light compton feh i3-gaps rofi xss-lock ripgrep xorg-xinput scrot fzf xsel hsetroot playerctl bat python-pip networkmanager dunst imagemagick i3lock
 
 log 'install yay'
-sudo pacman -S --needed base-devel git
+sudo pacman -S --noconfirm --needed base-devel git
 git clone https://aur.archlinux.org/yay-git.git
 cd yay-git
 makepkg -si
@@ -106,15 +106,16 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$
 ln -sf $HOME/.dotfiles/.p10k.zsh $HOME
 
 log 'install bluetooth'
-sudo pacman -S bluez bluez-utils
+sudo pacman -S --noconfirm bluez bluez-utils
 
 log 'install polybar'
-sudo pacman -S polybar
+sudo pacman -S --noconfirm polybar
+mkdir $HOME/.config/polybar
 ln -sf $HOME/.dotfiles/polybar/config.ini $HOME/.config/polybar/config.ini
 ln -sf $HOME/.dotfiles/polybar/launch.sh $HOME/.config/polybar/launch.sh
 
 log 'install fonts'
-sudo pacman -S ttf-dejavu
+sudo pacman -S --noconfirm ttf-dejavu
 FONTDIR=$HOME/.local/share/fonts
 mkdir -p $FONTDIR
 
