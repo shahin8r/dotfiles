@@ -126,6 +126,9 @@ fc-cache -f $FONTDIR
 log 'set zsh to default shell'
 sudo chsh -s $(which zsh) $USER
 
+log 'setup global gitignore'
+ln -sf $HOME/.dotfiles/.gitconfig $HOME/.gitconfig
+
 chmod +x $HOME/.dotfiles/bin/*
 mkdir -p $HOME/bin
 ln -sf $HOME/.dotfiles/bin/* $HOME/bin
