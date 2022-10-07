@@ -130,6 +130,9 @@ sudo chsh -s $(which zsh) $USER
 log 'setup global gitignore'
 ln -sf $HOME/.dotfiles/.gitconfig $HOME/.gitconfig
 
+log 'install gnome-keyring'
+sudo pacman -S --nconfirm gnome-keyring seahorse
+
 chmod +x $HOME/.dotfiles/bin/*
 mkdir -p $HOME/bin
 ln -sf $HOME/.dotfiles/bin/* $HOME/bin
