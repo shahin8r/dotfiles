@@ -133,6 +133,9 @@ ln -sf $HOME/.dotfiles/.gitconfig $HOME/.gitconfig
 log 'install gnome-keyring'
 sudo pacman -S --nconfirm gnome-keyring seahorse
 
+log 'generate ssh key'
+ssh-keygen -t ed25519 -C "shahin.ag@gmail.com"
+
 chmod +x $HOME/.dotfiles/bin/*
 mkdir -p $HOME/bin
 ln -sf $HOME/.dotfiles/bin/* $HOME/bin
