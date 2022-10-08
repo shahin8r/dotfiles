@@ -1,109 +1,140 @@
 #!/bin/bash
 
-git clone git@github.com:shahin8r/dotfiles.git $HOME/.dotfiles
+set -e
+
+function log () {
+  echo -e "\n---------------------"
+  echo "$1..."
+  echo -e "---------------------\n"
+}
+
+sudo pacman -S --noconfirm git
+
+git clone https://github.com/shahin8r/dotfiles.git $HOME/.dotfiles
+cd $HOME/.dotfiles
+git remote set-url origin git@github.com:shahin8r/dotfiles.git
 ln -sf $HOME/.dotfiles/.gitconfig $HOME
+cd $HOME
 
-sudo apt update
-sudo apt install -y ssh zsh awscli curl python3-pip neovim vim build-essential nodejs npm tmux pv zsh htop jq mpv ranger ncdu telegram-desktop nload amazon-ecr-credential-helper transmission mysql-client peco light compton feh i3 rofi xss-lock ripgrep xinput scrot fzf xsel hsetroot playerctl xautolock bat
+sudo pacman -S --noconfirm openssh man zsh aws-cli curl neovim vim nodejs npm tmux pv htop jq mpv ranger screen ncdu telegram-desktop nload transmission-gtk mariadb-clients peco light compton feh i3-gaps rofi xss-lock ripgrep xorg-xinput scrot fzf xsel hsetroot playerctl bat python-pip networkmanager dunst imagemagick i3lock wget libnotify
 
-# install vscode
-wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
-sudo install -o root -g root -m 644 packages.microsoft.gpg /etc/apt/trusted.gpg.d/
-sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
+log 'install yay'
+sudo pacman -S --noconfirm --needed base-devel git
+git clone https://aur.archlinux.org/yay-git.git
+cd yay-git
+makepkg -si
+cd $HOME && rm -rf yay-git
 
-sudo apt install -y apt-transport-https
-sudo apt update && sudo apt install -y code
+log 'install vscode'
+sudo pacman -S --noconfirm code
 
-# install docker
-sudo apt install -y ca-certificates gnupg-agent software-properties-common
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-sudo add-apt-repository -y "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-sudo apt update
-sudo apt install -y docker-ce docker-ce-cli containerd.io docker-compose
-sudo usermod -a -G docker $USER
+log 'install docker'
+sudo pacman -S --noconfirm docker docker-compose
 
-# install terraform
-curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
-sudo apt-add-repository -y "deb [arch=$(dpkg --print-architecture)] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
-sudo apt install -y terraform
+log 'install terraform'
+sudo pacman -S --noconfirm terraform
 
-# install aws-vault
+log 'install aws-vault'
 sudo curl -Lo /usr/local/bin/aws-vault https://github.com/99designs/aws-vault/releases/latest/download/aws-vault-linux-amd64
 sudo chmod 755 /usr/local/bin/aws-vault
 
-# install aws-elasticbeanstalk
-pip install awsebcli
+log 'install adwaita gtk theme'
+sudo pacman -S --noconfirm gnome-themes-extra
 
-# install google-chrome
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -P /tmp
-sudo apt install -y /tmp/google-chrome-stable_current_amd64.deb
+log 'install xidlehook'
+yay -S --noconfirm --answerdiff=None xidlehook
 
-# install spotify
-curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | sudo apt-key add - 
-echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
-sudo apt update && sudo apt install -y spotify-client
+log 'install 1password'
+yay -S --noconfirm --answerdiff=None 1password
 
-# setup i3
+log 'install google-chrome'
+yay -S --noconfirm --answerdiff=None google-chrome
+
+log 'install slack'
+yay -S --noconfirm --answerdiff=None slack-desktop
+
+log 'install spotify'
+yay -S --noconfirm --answerdiff=None spotify
+
+log 'setup i3'
+mkdir -p $HOME/.config/i3
 ln -sf $HOME/.dotfiles/i3config $HOME/.config/i3/config
 ln -sf $HOME/.dotfiles/.i3status.conf $HOME
 
-# setup picom
+log 'setup picom'
 ln -sf $HOME/.dotfiles/picom.conf $HOME/.config
 
-# setup gtk settings
-ln -sf $HOME/.dotfiles/gtk-3.0-settings.conf $HOME/.config/gtk-3.0/settings.ini
+log 'setup gtk settings'
+mkdir -p $HOME/.config/gtk-3.0
+ln -sf $HOME/.dotfiles/gtk-3.0-settings.ini $HOME/.config/gtk-3.0/settings.ini
 
-# install st
-sudo apt install -y libxft-dev
+log 'install st'
+sudo pacman -S --noconfirm libxft
 mkdir -p $HOME/src
-git clone git@github.com:shahin8r/st.git $HOME/src/st
+git clone https://github.com/shahin8r/st.git $HOME/src/st
 cd $HOME/src/st && sudo make clean install
+git remote set-url origin git@github.com:shahin8r/st.git
 
 ln -sf $HOME/.dotfiles/.Xresources $HOME/.Xresources
 
-# install rofi-calc
-sudo apt install -y rofi-dev qalc libtool autoconf
-git clone git@github.com:svenstaro/rofi-calc.git $HOME/src/rofi-calc
-cd $HOME/src/rofi-calc && autoreconf -i && mkdir $HOME/src/rofi-calc/build && cd $HOME/src/rofi-calc/build && $HOME/src/rofi-calc/configure && make && sudo make install
+log 'install rofi-calc'
+sudo pacman -S --noconfirm rofi-calc
 
-# setup xorg keyboard config
+log 'setup xorg keyboard config'
 sudo ln -sf $HOME/.dotfiles/00-keyboard.conf /etc/X11/xorg.conf.d/00-keyboard.conf
 
-# setup tmux
+log 'setup tmux'
 ln -sf $HOME/.dotfiles/.tmux.conf $HOME/.tmux.conf
 
-# setup neovim
+log 'setup neovim'
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 mkdir -p $HOME/.config/nvim
 ln -sf $HOME/.dotfiles/nvim/* $HOME/.config/nvim/
+pip install pynvim
 
-# install nvm
+log 'install nvm'
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
 
-# install oh-my-zsh and plugins
+log 'install oh-my-zsh and plugins'
 sh -c "RUNZSH=no KEEP_ZSHRC=yes $(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 ln -sf $HOME/.dotfiles/.zshrc $HOME
 
-# install powerlevel10k zsh prompt
+log 'install powerlevel10k zsh prompt'
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 ln -sf $HOME/.dotfiles/.p10k.zsh $HOME
 
-# install fonts
+log 'install bluetooth'
+sudo pacman -S --noconfirm bluez bluez-utils
+
+log 'install polybar'
+sudo pacman -S --noconfirm polybar
+mkdir $HOME/.config/polybar
+ln -sf $HOME/.dotfiles/polybar/config.ini $HOME/.config/polybar/config.ini
+ln -sf $HOME/.dotfiles/polybar/launch.sh $HOME/.config/polybar/launch.sh
+
+log 'install fonts'
+sudo pacman -S --noconfirm ttf-dejavu
 FONTDIR=$HOME/.local/share/fonts
 mkdir -p $FONTDIR
 
 wget https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Hack/Regular/complete/Hack%20Regular%20Nerd%20Font%20Complete.ttf -qP $FONTDIR
 
-# set zsh to default shell
-sudo chsh -s $(which zsh) $USER
-
-# update font cache
+log 'update font cache'
 fc-cache -f $FONTDIR
 
-ln -sf $HOME/.dotfiles/80-kbd-mouse-setup.rules /etc/udev/rules.d/80-kbd-mouse-setup.rules
+log 'set zsh to default shell'
+sudo chsh -s $(which zsh) $USER
+
+log 'setup global gitignore'
+ln -sf $HOME/.dotfiles/.gitconfig $HOME/.gitconfig
+
+log 'install gnome-keyring'
+sudo pacman -S --nconfirm gnome-keyring seahorse
 
 chmod +x $HOME/.dotfiles/bin/*
 mkdir -p $HOME/bin
 ln -sf $HOME/.dotfiles/bin/* $HOME/bin
 
-echo -e "\nAll done! Log out and log in again.\n"
+log 'All done! Log out and log in again.'
