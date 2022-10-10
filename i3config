@@ -35,6 +35,7 @@ bindsym $mod+Shift+q kill
 bindsym $mod+Return exec --no-startup-id rofi -show drun
 bindsym $mod+Shift+Return exec --no-startup-id rofi -show run
 bindsym $mod+Control+Return exec --no-startup-id rofi -show calc -modi calc -no-show-match -no-sort -no-history -lines 0 -calc-command "echo -n '{result}' | xclip -selection clipboard"
+bindsym $mod+Shift+b exec --no-startup-id rofi-bluetooth
 
 # change focus
 bindsym $mod+h focus left

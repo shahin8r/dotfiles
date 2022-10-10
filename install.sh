@@ -16,7 +16,7 @@ git remote set-url origin git@github.com:shahin8r/dotfiles.git
 ln -sf $HOME/.dotfiles/.gitconfig $HOME
 cd $HOME
 
-sudo pacman -S --noconfirm openssh man zsh aws-cli curl neovim vim nodejs npm tmux pv htop jq mpv ranger screen ncdu telegram-desktop nload transmission-gtk mariadb-clients peco light compton feh i3-gaps rofi xss-lock ripgrep xorg-xinput scrot fzf xsel hsetroot playerctl bat python-pip networkmanager dunst imagemagick i3lock wget libnotify yarn
+sudo pacman -S --noconfirm openssh man zsh aws-cli curl neovim vim nodejs npm tmux pv htop jq mpv ranger screen ncdu telegram-desktop nload transmission-gtk mariadb-clients peco light compton feh i3-gaps xss-lock ripgrep xorg-xinput scrot fzf xsel hsetroot playerctl bat python-pip networkmanager dunst imagemagick i3lock wget libnotify yarn
 
 log 'install yay'
 sudo pacman -S --noconfirm --needed base-devel git
@@ -77,8 +77,9 @@ git remote set-url origin git@github.com:shahin8r/st.git
 
 ln -sf $HOME/.dotfiles/.Xresources $HOME/.Xresources
 
-log 'install rofi-calc'
-sudo pacman -S --noconfirm rofi-calc
+log 'install rofi'
+sudo pacman -S --noconfirm rofi rofi-calc
+sudo yay -S ---noconfirm --answerdiff=None rofi-bluetooth-git
 
 log 'setup xorg keyboard config'
 sudo ln -sf $HOME/.dotfiles/00-keyboard.conf /etc/X11/xorg.conf.d/00-keyboard.conf
