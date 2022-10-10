@@ -6,6 +6,13 @@ killall -q polybar
 # polybar-msg cmd quit
 
 # Launch Polybar, using default config location ~/.config/polybar/config.ini
-polybar mybar 2>&1 | tee -a /tmp/polybar.log & disown
+
+if type "xrandr"; then
+  for monitor in $(polybar --list-monitors | cut -d":" -f1); do
+    MONITOR=$monitor polybar mybar 2>&1 | tee -a /tmp/polybar.log & disown
+  done
+else
+  polybar mybar 2>&1 | tee -a /tmp/polybar.log & disown
+fi
 
 echo "Polybar launched..."
