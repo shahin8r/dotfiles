@@ -27,7 +27,10 @@ require('packer').startup(function(use)
 
   use {
     'nvim-telescope/telescope.nvim', tag = '0.1.0',
-    requires = { {'nvim-lua/plenary.nvim'} }
+    config = function()
+      require 'plugins.configs.telescope'
+    end,
+    requires = { {'nvim-lua/plenary.nvim'} },
   }
 
   use { 'nanotech/jellybeans.vim' }
@@ -35,4 +38,6 @@ require('packer').startup(function(use)
   use { 'tpope/vim-fugitive' }
 
   use { 'airblade/vim-gitgutter' }
+
+  use { 'kyazdani42/nvim-web-devicons' }
 end)
