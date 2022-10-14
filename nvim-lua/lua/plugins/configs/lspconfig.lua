@@ -38,15 +38,16 @@ require('mason-lspconfig').setup({
   automatic_installation = true
 })
 
-lsp.prismals.setup()
-
-lsp.tsserver.setup({
-  on_attach = mappings.on_attach,
+lsp.prismals.setup({
+  on_attach = mappings.lspconfig.on_attach,
 })
 
+lsp.tsserver.setup({
+  on_attach = mappings.lspconfig.on_attach,
+})
 
 lsp.sumneko_lua.setup({
-  on_attach = mappings.on_attach,
+  on_attach = mappings.lspconfig.on_attach,
   settings = {
     Lua = {
       runtime = {
