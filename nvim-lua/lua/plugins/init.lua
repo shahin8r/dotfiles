@@ -10,12 +10,7 @@ require('packer').startup(function(use)
   }
 
   use {
-    {
-      'williamboman/mason.nvim',
-      config = function()
-        require 'plugins.configs.mason'
-      end
-    },
+    'williamboman/mason.nvim',
     'williamboman/mason-lspconfig.nvim',
     {
       'neovim/nvim-lspconfig',
