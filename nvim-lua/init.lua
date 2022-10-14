@@ -14,3 +14,4 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
 end
 
 require('plugins')
+require('options')
