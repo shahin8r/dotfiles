@@ -26,11 +26,26 @@ local mappings = require('mappings')
 
 local lsp = require('lspconfig')
 
-lsp.tsserver.setup{
-  on_attach = mappings.on_attach,
-}
+require('mason').setup()
+require('mason-lspconfig').setup({
+  ensure_installed = {
+    'tsserver',
+    'sumneko_lua',
+    'intelephense',
+    'terraform-ls',
+    'prismals'
+  },
+  automatic_installation = true
+})
 
-lsp.sumneko_lua.setup{
+lsp.prismals.setup()
+
+lsp.tsserver.setup({
+  on_attach = mappings.on_attach,
+})
+
+
+lsp.sumneko_lua.setup({
   on_attach = mappings.on_attach,
   settings = {
     Lua = {
@@ -52,15 +67,4 @@ lsp.sumneko_lua.setup{
       },
     }
   }
-}
-
-require('mason').setup()
-require('mason-lspconfig').setup({
-  ensure_installed = {
-    'tsserver',
-    'sumneko_lua',
-    'intelephense',
-    'terraform-ls'
-  },
-  automatic_installation = true
 })

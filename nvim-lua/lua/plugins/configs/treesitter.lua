@@ -4,7 +4,8 @@ require('nvim-treesitter.configs').setup{
     "javascript",
     "php",
     "typescript",
-    "hcl"
+    "hcl",
+    "prisma"
   },
 
   highlight = {
