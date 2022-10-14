@@ -1,4 +1,9 @@
+vim.g.mapleader = ' '
 vim.keymap.set('i', 'jj', '<Esc>', {})
+
+vim.keymap.set('n', '<leader>y', '\"+y', {})
+vim.keymap.set('v', '<leader>y', '\"+y', {})
+vim.keymap.set({ 'n', 'v' }, '<leader>Y', '\"+Y', {})
 
 local M = {}
 
