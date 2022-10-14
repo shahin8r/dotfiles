@@ -33,4 +33,6 @@ require('packer').startup(function(use)
   use { 'nanotech/jellybeans.vim' }
 
   use { 'tpope/vim-fugitive' }
+
+  use { 'airblade/vim-gitgutter' }
 end)
