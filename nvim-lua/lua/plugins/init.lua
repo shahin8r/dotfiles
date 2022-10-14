@@ -31,4 +31,6 @@ require('packer').startup(function()
   }
 
   use { 'nanotech/jellybeans.vim' }
+
+  use { 'tpope/vim-fugitive' }
 end)
