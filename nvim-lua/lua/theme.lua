@@ -8,6 +8,8 @@ vim.api.nvim_set_hl(0, 'StatusLineNc', { bg = '#111111', fg = '#666666' })
 vim.api.nvim_set_hl(0, 'NormalFloat', { bg = '#222222' })
 vim.api.nvim_set_hl(0, 'SignColumn', { bg = 'none' })
 vim.api.nvim_set_hl(0, 'VertSplit', { bg = 'none', fg = '#222222' })
+vim.api.nvim_set_hl(0, 'TabLine', { bg = 'none', fg = '#666666' })
+vim.api.nvim_set_hl(0, 'TabLineSel', { bg = 'none', fg = '#eeeeee' })
 
 -- statusline
 vim.opt.statusline=" %{pathshorten(expand('%:f'))} %([%{FugitiveHead()}]%) %m%r%y%w%=C:%c L:%l/%L "
