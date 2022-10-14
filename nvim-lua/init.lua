@@ -5,7 +5,7 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
   vim.cmd 'packadd packer.nvim'
   print 'Installed packer!'
 
-  require 'plugins'
+  require('plugins')
   print 'Installing plugins... Restart nvim after installation is complete'
   require('packer').sync()
 
@@ -15,3 +15,4 @@ end
 
 require('plugins')
 require('options')
+require('mappings')
