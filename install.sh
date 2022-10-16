@@ -79,7 +79,7 @@ ln -sf $HOME/.dotfiles/.Xresources $HOME/.Xresources
 
 log 'install rofi'
 sudo pacman -S --noconfirm rofi rofi-calc
-yay -S ---noconfirm --answerdiff=None rofi-bluetooth-git
+yay -S --noconfirm --answerdiff=None rofi-bluetooth-git
 
 log 'setup xorg keyboard config'
 sudo ln -sf $HOME/.dotfiles/00-keyboard.conf /etc/X11/xorg.conf.d/00-keyboard.conf
@@ -120,7 +120,7 @@ sudo pacman -S --noconfirm ttf-dejavu
 FONTDIR=$HOME/.local/share/fonts
 mkdir -p $FONTDIR
 
-yay -S ---noconfirm --answerdiff=None nerd-fonts-hack
+yay -S --noconfirm --answerdiff=None nerd-fonts-hack
 
 log 'set zsh to default shell'
 sudo chsh -s $(which zsh) $USER
@@ -129,7 +129,7 @@ log 'setup global gitignore'
 ln -sf $HOME/.dotfiles/.gitconfig $HOME/.gitconfig
 
 log 'install gnome-keyring'
-sudo pacman -S --nconfirm gnome-keyring seahorse
+sudo pacman -S --noconfirm gnome-keyring seahorse
 
 log 'generate ssh key'
 ssh-keygen -t ed25519 -C "shahin.ag@gmail.com"
