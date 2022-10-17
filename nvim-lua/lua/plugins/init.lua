@@ -5,7 +5,7 @@ require('packer').startup(function(use)
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
     config = function()
-      require 'plugins.configs.treesitter'
+      require('plugins.configs.treesitter')
     end
   }
 
@@ -15,7 +15,7 @@ require('packer').startup(function(use)
     {
       'neovim/nvim-lspconfig',
       config = function()
-        require 'plugins.configs.lspconfig'
+        require('plugins.configs.lspconfig')
       end
     }
   }
@@ -23,9 +23,17 @@ require('packer').startup(function(use)
   use {
     'nvim-telescope/telescope.nvim', tag = '0.1.0',
     config = function()
-      require 'plugins.configs.telescope'
+      require('plugins.configs.telescope')
     end,
-    requires = { {'nvim-lua/plenary.nvim'} },
+    requires = { {'nvim-lua/plenary.nvim'} }
+  }
+
+  use {
+    'jose-elias-alvarez/null-ls.nvim',
+    config = function()
+      require('plugins.configs.null-ls')
+    end,
+    requires = { {'nvim-lua/plenary.nvim'} }
   }
 
   use { 'nanotech/jellybeans.vim' }
