@@ -34,8 +34,7 @@ require('mason-lspconfig').setup({
     'intelephense',
     'terraform-ls',
     'prismals'
-  },
-  automatic_installation = true
+  }
 })
 
 lsp.prismals.setup({
