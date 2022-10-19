@@ -1,11 +1,13 @@
 require('nvim-treesitter.configs').setup{
   ensure_installed = {
-    "lua",
-    "javascript",
-    "php",
-    "typescript",
-    "hcl",
-    "prisma"
+    'lua',
+    'javascript',
+    'php',
+    'typescript',
+    'hcl',
+    'prisma',
+    'graphql',
+    'tsx'
   },
 
   highlight = {

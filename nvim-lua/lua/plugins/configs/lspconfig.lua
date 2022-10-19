@@ -32,8 +32,9 @@ require('mason-lspconfig').setup({
     'tsserver',
     'sumneko_lua',
     'intelephense',
-    'terraform-ls',
-    'prismals'
+    'terraformls',
+    'prismals',
+    'graphql'
   }
 })
 
