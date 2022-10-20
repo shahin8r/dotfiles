@@ -38,18 +38,37 @@ require('mason-lspconfig').setup({
   }
 })
 
-lsp.prismals.setup({
+lsp.sumneko_lua.setup({
   on_attach = mappings.lspconfig.on_attach,
+  settings = {
+    Lua = {
+      runtime = {
+        version = 'LuaJIT',
+      },
+      diagnostics = {
+        -- get the language server to recognize the `vim` global
+        globals = {'vim'},
+      },
+      workspace = {
+        -- make the server aware of Neovim runtime files
+        library = vim.api.nvim_get_runtime_file("", true),
+      },
+      -- do not send telemetry data
+      telemetry = {
+        enable = false,
+      },
+    }
+  }
 })
 
 lsp.tsserver.setup({
   on_attach = mappings.lspconfig.on_attach,
 })
 
-lsp.sumneko_lua.setup({
+lsp.intelephense.setup({
   on_attach = mappings.lspconfig.on_attach,
 })
 
-lsp.intelephense.setup({
+lsp.prismals.setup({
   on_attach = mappings.lspconfig.on_attach,
 })
