@@ -36,6 +36,11 @@ require('packer').startup(function(use)
     requires = { {'nvim-lua/plenary.nvim'} }
   }
 
+  use {
+    'ThePrimeagen/harpoon',
+    requires = { {'nvim-lua/plenary.nvim'} }
+  }
+
   use { 'navarasu/onedark.nvim' }
 
   use { 'tpope/vim-fugitive' }

@@ -50,4 +50,12 @@ M.lspconfig.on_attach = function(client, bufnr)
   vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, M.lspconfig.bufopts)
 end
 
+-- harpoon
+vim.keymap.set('n', '<space>ma', require('harpoon.mark').add_file, {})
+vim.keymap.set('n', '<space>mo', require('harpoon.ui').toggle_quick_menu, {})
+vim.keymap.set('n', '<space>m1', function() return require('harpoon.ui').nav_file(1) end, {})
+vim.keymap.set('n', '<space>m2', function() return require('harpoon.ui').nav_file(2) end, {})
+vim.keymap.set('n', '<space>m3', function() return require('harpoon.ui').nav_file(3) end, {})
+vim.keymap.set('n', '<space>m4', function() return require('harpoon.ui').nav_file(4) end, {})
+
 return M

@@ -15,6 +15,10 @@ vim.api.nvim_set_hl(0, 'SignColumn', { bg = 'none' })
 vim.api.nvim_set_hl(0, 'Winbar', { bg = 'none', fg = '#666666' })
 vim.api.nvim_set_hl(0, '@variable', { bg = 'none', fg = '#dddddd' })
 
+-- harpoon
+vim.api.nvim_set_hl(0, 'HarpoonWindow', { bg = '#000000' })
+vim.api.nvim_set_hl(0, 'HarpoonBorder', { bg = '#000000' })
+
 -- statusline
 vim.opt.statusline = " %([%{FugitiveHead()}]%) %r%y%w %(%m %)%t %=C:%c L:%l/%L "
 
