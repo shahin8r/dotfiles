@@ -36,7 +36,7 @@ require('packer').startup(function(use)
     requires = { {'nvim-lua/plenary.nvim'} }
   }
 
-  use { 'nanotech/jellybeans.vim' }
+  use { 'navarasu/onedark.nvim' }
 
   use { 'tpope/vim-fugitive' }
 
