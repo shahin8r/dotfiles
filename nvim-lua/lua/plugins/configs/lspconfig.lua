@@ -34,7 +34,9 @@ require('mason-lspconfig').setup({
     'intelephense',
     'terraformls',
     'prismals',
-    'graphql'
+    'graphql',
+    'angularls',
+    'cssls'
   }
 })
 
@@ -70,5 +72,13 @@ lsp.intelephense.setup({
 })
 
 lsp.prismals.setup({
+  on_attach = mappings.lspconfig.on_attach,
+})
+
+lsp.cssls.setup({
+  on_attach = mappings.lspconfig.on_attach,
+})
+
+lsp.angularls.setup({
   on_attach = mappings.lspconfig.on_attach,
 })
