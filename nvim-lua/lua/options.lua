@@ -9,3 +9,4 @@ vim.opt.termguicolors = true
 vim.opt.cursorline = true
 vim.opt.updatetime = 250
 vim.opt.signcolumn = 'auto:2'
+vim.opt.wrap = false
