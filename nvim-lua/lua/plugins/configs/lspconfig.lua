@@ -11,15 +11,14 @@ for type, icon in pairs(signs) do
 end
 
 vim.diagnostic.config({
-  signs = false,
+  signs = true,
   update_in_insert = false,
-  underline = true,
+  underline = false,
   severity_sort = true,
   virtual_text = {
-    severity = vim.diagnostic.severity.WARNING,
+    severity = vim.diagnostic.severity.ERROR,
     source = true,
   },
-  virtual_lines = false,
 })
 
 local mappings = require('mappings')

@@ -22,5 +22,5 @@ vim.api.nvim_set_hl(0, 'HarpoonBorder', { bg = '#000000' })
 -- statusline
 vim.opt.statusline = " %([%{FugitiveHead()}]%) %r%y%w %(%m %)%t %=C:%c L:%l/%L "
 
--- winbar
-vim.opt.winbar = '%=%m %F '
+-- gitgutter
+vim.g.gitgutter_sign_priority = 20
