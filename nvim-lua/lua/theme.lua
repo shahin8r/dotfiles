@@ -15,12 +15,19 @@ vim.api.nvim_set_hl(0, 'SignColumn', { bg = 'none' })
 vim.api.nvim_set_hl(0, 'Winbar', { bg = 'none', fg = '#666666' })
 vim.api.nvim_set_hl(0, '@variable', { bg = 'none', fg = '#dddddd' })
 
+-- telescope
+vim.api.nvim_set_hl(0, 'TelescopeNormal', { bg = '#151515' })
+vim.api.nvim_set_hl(0, 'TelescopeBorder', { bg = '#151515', fg = '#cccccc' })
+vim.api.nvim_set_hl(0, 'TelescopePreviewBorder', { bg = '#151515', fg = '#151515' })
+vim.api.nvim_set_hl(0, 'TelescopePromptBorder', { bg = '#151515', fg = '#151515' })
+vim.api.nvim_set_hl(0, 'TelescopeResultsBorder', { bg = '#151515', fg = '#151515' })
+
 -- harpoon
-vim.api.nvim_set_hl(0, 'HarpoonWindow', { bg = '#000000' })
-vim.api.nvim_set_hl(0, 'HarpoonBorder', { bg = '#000000' })
+vim.api.nvim_set_hl(0, 'HarpoonWindow', { bg = '#151515' })
+vim.api.nvim_set_hl(0, 'HarpoonBorder', { bg = '#151515', fg = '#151515' })
 
 -- statusline
-vim.opt.statusline = " %([%{FugitiveHead()}]%) %r%y%w %(%m %)%t %=C:%c L:%l/%L "
+vim.opt.statusline = " %([%{FugitiveHead()}]%) %r%y%w %(%m %)%{pathshorten(expand('%:f'))} %=C:%c L:%l/%L "
 
 -- gitgutter
 vim.g.gitgutter_sign_priority = 20
