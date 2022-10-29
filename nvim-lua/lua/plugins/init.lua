@@ -29,6 +29,21 @@ require('packer').startup(function(use)
   }
 
   use {
+    'hrsh7th/nvim-cmp',
+    config = function()
+      require('plugins.configs.cmp')
+    end,
+    requires = {
+      'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/cmp-buffer',
+      'hrsh7th/cmp-path',
+      'hrsh7th/cmp-cmdline',
+      'L3MON4D3/LuaSnip',
+      'saadparwaiz1/cmp_luasnip',
+    }
+  }
+
+  use {
     'jose-elias-alvarez/null-ls.nvim',
     config = function()
       require('plugins.configs.null-ls')

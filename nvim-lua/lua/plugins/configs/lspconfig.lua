@@ -62,22 +62,29 @@ lsp.sumneko_lua.setup({
   }
 })
 
+local cmp_capabilities = require('cmp_nvim_lsp').default_capabilities()
+
 lsp.tsserver.setup({
   on_attach = mappings.lspconfig.on_attach,
+  capabilities = cmp_capabilities
 })
 
 lsp.intelephense.setup({
   on_attach = mappings.lspconfig.on_attach,
+  capabilities = cmp_capabilities
 })
 
 lsp.prismals.setup({
   on_attach = mappings.lspconfig.on_attach,
+  capabilities = cmp_capabilities
 })
 
 lsp.cssls.setup({
   on_attach = mappings.lspconfig.on_attach,
+  capabilities = cmp_capabilities
 })
 
 lsp.angularls.setup({
   on_attach = mappings.lspconfig.on_attach,
+  capabilities = cmp_capabilities
 })
