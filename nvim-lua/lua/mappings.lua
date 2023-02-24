@@ -18,7 +18,7 @@ vim.keymap.set('n', 'fh', telescope.help_tags, {})
 -- lspconfig
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 M.lspconfig = {}
-M.lspconfig.opts = { noremap=true, silent=true }
+M.lspconfig.opts = { noremap = true, silent = true }
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, M.lspconfig.opts)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, M.lspconfig.opts)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, M.lspconfig.opts)
@@ -32,7 +32,7 @@ M.lspconfig.on_attach = function(client, bufnr)
 
   -- Mappings.
   -- See `:help vim.lsp.*` for documentation on any of the below functions
-  M.lspconfig.bufopts = { noremap=true, silent=true, buffer=bufnr }
+  M.lspconfig.bufopts = { noremap = true, silent = true, buffer = bufnr }
   vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, M.lspconfig.bufopts)
   vim.keymap.set('n', 'gd', vim.lsp.buf.definition, M.lspconfig.bufopts)
   vim.keymap.set('n', 'K', vim.lsp.buf.hover, M.lspconfig.bufopts)

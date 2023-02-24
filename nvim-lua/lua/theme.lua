@@ -16,15 +16,15 @@ vim.api.nvim_set_hl(0, 'Winbar', { bg = 'none', fg = '#666666' })
 vim.api.nvim_set_hl(0, '@variable', { bg = 'none', fg = '#dddddd' })
 
 -- telescope
-vim.api.nvim_set_hl(0, 'TelescopeNormal', { bg = '#151515' })
-vim.api.nvim_set_hl(0, 'TelescopeBorder', { bg = '#151515', fg = '#cccccc' })
-vim.api.nvim_set_hl(0, 'TelescopePreviewBorder', { bg = '#151515', fg = '#151515' })
-vim.api.nvim_set_hl(0, 'TelescopePromptBorder', { bg = '#151515', fg = '#151515' })
-vim.api.nvim_set_hl(0, 'TelescopeResultsBorder', { bg = '#151515', fg = '#151515' })
+vim.api.nvim_set_hl(0, 'TelescopeNormal', { bg = '#181818' })
+vim.api.nvim_set_hl(0, 'TelescopeBorder', { bg = '#181818', fg = '#cccccc' })
+vim.api.nvim_set_hl(0, 'TelescopePreviewBorder', { bg = '#181818', fg = '#181818' })
+vim.api.nvim_set_hl(0, 'TelescopePromptBorder', { bg = '#181818', fg = '#181818' })
+vim.api.nvim_set_hl(0, 'TelescopeResultsBorder', { bg = '#181818', fg = '#181818' })
 
 -- harpoon
-vim.api.nvim_set_hl(0, 'HarpoonWindow', { bg = '#151515' })
-vim.api.nvim_set_hl(0, 'HarpoonBorder', { bg = '#151515', fg = '#151515' })
+vim.api.nvim_set_hl(0, 'HarpoonWindow', { bg = '#181818' })
+vim.api.nvim_set_hl(0, 'HarpoonBorder', { bg = '#181818', fg = '#181818' })
 
 -- statusline
 vim.opt.statusline = " %([%{FugitiveHead()}]%) %r%y%w %(%m %)%{pathshorten(expand('%:f'))} %=C:%c L:%l/%L "

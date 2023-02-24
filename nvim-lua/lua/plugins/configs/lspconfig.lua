@@ -48,7 +48,7 @@ lsp.sumneko_lua.setup({
       },
       diagnostics = {
         -- get the language server to recognize the `vim` global
-        globals = {'vim'},
+        globals = { 'vim' },
       },
       workspace = {
         -- make the server aware of Neovim runtime files
