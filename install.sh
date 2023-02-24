@@ -16,7 +16,7 @@ git remote set-url origin git@github.com:shahin8r/dotfiles.git
 ln -sf $HOME/.dotfiles/.gitconfig $HOME
 cd $HOME
 
-sudo pacman -S --noconfirm openssh man zsh aws-cli curl neovim vim nodejs npm tmux pv htop jq mpv ranger screen ncdu telegram-desktop nload transmission-gtk mariadb-clients peco light compton feh i3-gaps xss-lock ripgrep xorg-xinput scrot fzf xsel hsetroot playerctl bat python-pip networkmanager dunst imagemagick i3lock wget libnotify yarn rsync polkit bind unzip fd
+sudo pacman -S --noconfirm openssh man zsh aws-cli curl neovim vim nodejs npm tmux pv htop jq mpv ranger screen ncdu telegram-desktop nload transmission-gtk mariadb-clients peco light compton feh i3-gaps xss-lock ripgrep xorg-xinput scrot fzf xsel hsetroot playerctl bat python-pip networkmanager dunst imagemagick i3lock wget libnotify yarn rsync unzip fd polkit bind noto-fonts-emoji ibus-emoji zip
 
 log 'install yay'
 sudo pacman -S --noconfirm --needed base-devel git
@@ -55,6 +55,9 @@ yay -S --noconfirm --answerdiff=None slack-desktop
 
 log 'install spotify'
 yay -S --noconfirm --answerdiff=None spotify
+
+log 'install beekeeper studio'
+yay -S --noconfirm --answerdiff=None beekeeper-studio
 
 log 'setup i3'
 mkdir -p $HOME/.config/i3
