@@ -35,7 +35,8 @@ require('mason-lspconfig').setup({
     'prismals',
     'graphql',
     'angularls',
-    'cssls'
+    'cssls',
+    'tailwindcss'
   }
 })
 
@@ -85,6 +86,16 @@ lsp.cssls.setup({
 })
 
 lsp.angularls.setup({
+  on_attach = mappings.lspconfig.on_attach,
+  capabilities = cmp_capabilities
+})
+
+lsp.terraformls.setup({
+  on_attach = mappings.lspconfig.on_attach,
+  capabilities = cmp_capabilities
+})
+
+lsp.tailwindcss.setup({
   on_attach = mappings.lspconfig.on_attach,
   capabilities = cmp_capabilities
 })
