@@ -29,7 +29,7 @@ require('mason').setup()
 require('mason-lspconfig').setup({
   ensure_installed = {
     'tsserver',
-    'sumneko_lua',
+    'lua_ls',
     'intelephense',
     'terraformls',
     'prismals',
@@ -40,7 +40,7 @@ require('mason-lspconfig').setup({
   }
 })
 
-lsp.sumneko_lua.setup({
+lsp.lua_ls.setup({
   on_attach = mappings.lspconfig.on_attach,
   settings = {
     Lua = {
