@@ -63,4 +63,6 @@ require('packer').startup(function(use)
   use { 'airblade/vim-gitgutter' }
 
   use { 'kyazdani42/nvim-web-devicons' }
+
+  use { 'github/copilot.vim' }
 end)
