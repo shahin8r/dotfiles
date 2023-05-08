@@ -71,12 +71,9 @@ log 'setup gtk settings'
 mkdir -p $HOME/.config/gtk-3.0
 ln -sf $HOME/.dotfiles/gtk-3.0-settings.ini $HOME/.config/gtk-3.0/settings.ini
 
-log 'install st'
-sudo pacman -S --noconfirm libxft
-mkdir -p $HOME/src
-git clone https://github.com/shahin8r/st.git $HOME/src/st
-cd $HOME/src/st && sudo make clean install
-git remote set-url origin git@github.com:shahin8r/st.git
+log 'install alacritty'
+sudo pacman -S --noconfirm alacritty
+ln -sf $HOME/.dotfiles/alacritty.yml $HOME/.config/alacritty.yml
 
 ln -sf $HOME/.dotfiles/.Xresources $HOME/.Xresources
 
