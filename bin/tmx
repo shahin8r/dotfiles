@@ -1,15 +1,30 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-SESSION=$1
-
-if [[ -n "${TMUX}" ]]; then
-  echo "You are already in tmux"
-  exit 1;
+if [[ $# -eq 1 ]]; then
+  selected=$1
+else
+  selected=$(echo -e "$HOME/todo\n$HOME/.dotfiles\n$(find ~/dev -mindepth 1 -maxdepth 1 -type d)" | fzf)
 fi
 
-if [[ -n $SESSION ]]; then
-  tmux a -t $SESSION || tmux new -s $SESSION
+if [[ -z $selected ]]; then
+  exit 0
+fi
+
+selected_name=$(basename "$selected" | sed 's/\.//')
+tmux_running=$(pgrep tmux)
+
+if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
+  tmux new-session -s $selected_name -c $selected
+  exit 0
+fi
+
+if ! tmux has-session -t=$selected_name 2> /dev/null; then
+  tmux new-session -ds $selected_name -c $selected
+fi
+
+if [[ -z $TMUX ]]; then
+  tmux attach -t $selected_name
 else
-  tmux ls
+  tmux switch-client -t $selected_name
 fi
 
