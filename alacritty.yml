@@ -187,7 +187,7 @@ font:
 colors:
   # Default colors
   primary:
-    background: '#000000'
+    background: '#080808'
     foreground: '#eeeeee'
 
     # Bright and dim foreground colors
@@ -280,8 +280,8 @@ colors:
   #  background: CellForeground
 
   # Normal colors
-  #normal:
-  #  black:   '#1d1f21'
+  normal:
+     black:   '#080808'
   #  red:     '#cc6666'
   #  green:   '#b5bd68'
   #  yellow:  '#f0c674'
@@ -892,32 +892,3 @@ key_bindings:
 
   # Highlight window damage information.
   #highlight_damage: false
-
-# One Dark
-colors:
-  # Default colors
-  primary:
-    background: '#000000'
-    foreground: '#eeeeee'
-
-  # Normal colors
-  normal:
-    black:   '#000000'
-    red:     '0xe06c75'
-    green:   '0x98c379'
-    yellow:  '0xd19a66'
-    blue:    '0x61afef'
-    magenta: '0xc678dd'
-    cyan:    '0x56b6c2'
-    white:   '0xabb2bf'
-
-  # Bright colors
-  bright:
-    black:   '0x5c6370'
-    red:     '0xe06c75'
-    green:   '0x98c379'
-    yellow:  '0xd19a66'
-    blue:    '0x61afef'
-    magenta: '0xc678dd'
-    cyan:    '0x56b6c2'
-    white:   '0xffffff'
