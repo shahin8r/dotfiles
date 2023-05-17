@@ -1,30 +1,4 @@
-require('onedark').setup({
-    style = 'darker'
-})
-require('onedark').load()
-
-vim.api.nvim_set_hl(0, 'EndOfBuffer', { bg = 'none', fg = '#333333' })
-vim.api.nvim_set_hl(0, 'Normal', { bg = 'none', fg = '#eeeeee' })
-vim.api.nvim_set_hl(0, 'NonText', {bg = 'none', fg = '#666666' })
-vim.api.nvim_set_hl(0, 'LineNr', { bg = 'none', fg = '#666666' })
-vim.api.nvim_set_hl(0, 'CursorLine', { bg = '#101010' })
-vim.api.nvim_set_hl(0, 'StatusLine', { bg = '#181818', fg = '#cccccc' })
-vim.api.nvim_set_hl(0, 'StatusLineNc', { bg = '#111111', fg = '#666666' })
-vim.api.nvim_set_hl(0, 'NormalFloat', { bg = '#222222' })
-vim.api.nvim_set_hl(0, 'SignColumn', { bg = 'none' })
-vim.api.nvim_set_hl(0, 'Winbar', { bg = 'none', fg = '#666666' })
-vim.api.nvim_set_hl(0, '@variable', { bg = 'none', fg = '#dddddd' })
-
--- telescope
-vim.api.nvim_set_hl(0, 'TelescopeNormal', { bg = '#181818' })
-vim.api.nvim_set_hl(0, 'TelescopeBorder', { bg = '#181818', fg = '#cccccc' })
-vim.api.nvim_set_hl(0, 'TelescopePreviewBorder', { bg = '#181818', fg = '#181818' })
-vim.api.nvim_set_hl(0, 'TelescopePromptBorder', { bg = '#181818', fg = '#181818' })
-vim.api.nvim_set_hl(0, 'TelescopeResultsBorder', { bg = '#181818', fg = '#181818' })
-
--- harpoon
-vim.api.nvim_set_hl(0, 'HarpoonWindow', { bg = '#181818' })
-vim.api.nvim_set_hl(0, 'HarpoonBorder', { bg = '#181818', fg = '#181818' })
+vim.cmd [[colorscheme github_dark_high_contrast]]
 
 -- statusline
 vim.opt.statusline = " %([%{FugitiveHead()}]%) %r%y%w %(%m %)%{pathshorten(expand('%:f'))} %=C:%c L:%l/%L "

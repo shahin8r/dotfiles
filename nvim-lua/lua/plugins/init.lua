@@ -56,7 +56,7 @@ require('packer').startup(function(use)
     requires = { {'nvim-lua/plenary.nvim'} }
   }
 
-  use { 'navarasu/onedark.nvim' }
+  use { 'projekt0n/github-nvim-theme' }
 
   use { 'tpope/vim-fugitive' }
 
