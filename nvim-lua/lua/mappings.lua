@@ -57,5 +57,10 @@ vim.keymap.set('n', '<space>m1', function() return require('harpoon.ui').nav_fil
 vim.keymap.set('n', '<space>m2', function() return require('harpoon.ui').nav_file(2) end, {})
 vim.keymap.set('n', '<space>m3', function() return require('harpoon.ui').nav_file(3) end, {})
 vim.keymap.set('n', '<space>m4', function() return require('harpoon.ui').nav_file(4) end, {})
+vim.keymap.set('n', '<space>m5', function() return require('harpoon.ui').nav_file(5) end, {})
+vim.keymap.set('n', '<space>m6', function() return require('harpoon.ui').nav_file(6) end, {})
+vim.keymap.set('n', '<space>m7', function() return require('harpoon.ui').nav_file(7) end, {})
+vim.keymap.set('n', '<space>m8', function() return require('harpoon.ui').nav_file(8) end, {})
+vim.keymap.set('n', '<space>m9', function() return require('harpoon.ui').nav_file(9) end, {})
 
 return M
