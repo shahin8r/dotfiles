@@ -14,6 +14,7 @@ vim.keymap.set('n', 'ff', telescope.find_files, {})
 vim.keymap.set('n', 'fg', telescope.live_grep, {})
 vim.keymap.set('n', 'fb', telescope.buffers, {})
 vim.keymap.set('n', 'fh', telescope.help_tags, {})
+vim.keymap.set('n', 'f<leader>', telescope.resume, {})
 
 -- lspconfig
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
