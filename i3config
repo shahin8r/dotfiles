@@ -2,10 +2,6 @@ set $mod Mod4
 
 font pango:monospace 8
 
-# NetworkManager is the most popular way to manage wireless networks on Linux,
-# and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id nm-applet
-
 exec --no-startup-id picom
 exec_always --no-startup-id hsetroot -solid "#151515"
 
@@ -176,8 +172,6 @@ exec --no-startup-id xidlehook \
     'systemctl suspend' \
     ''
 exec --no-startup-id xss-lock -l $HOME/bin/i3-lock-screen.sh
-
-exec_always --no-startup-id kbd-mouse-setup
 
 bindsym $mod+b exec --no-startup-id google-chrome-stable
 bindsym $mod+n exec --no-startup-id dunstctl is-paused | grep false && notify-send -t 1000 'Notifications disabled' && sleep 1 && dunstctl set-paused true || dunstctl set-paused false && notify-send -t 1000 'Notifications enabled'

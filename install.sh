@@ -84,6 +84,9 @@ yay -S --noconfirm --answerdiff=None rofi-bluetooth-git
 log 'setup xorg keyboard config'
 sudo ln -sf $HOME/.dotfiles/00-keyboard.conf /etc/X11/xorg.conf.d/00-keyboard.conf
 
+log 'setup xorg mouse config'
+sudo ln -sf $HOME/.dotfiles/00-mouse.conf /etc/X11/xorg.conf.d/00-mouse.conf
+
 log 'setup tmux'
 ln -sf $HOME/.dotfiles/.tmux.conf $HOME/.tmux.conf
 
