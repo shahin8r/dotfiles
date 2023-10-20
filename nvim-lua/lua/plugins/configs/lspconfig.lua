@@ -76,10 +76,7 @@ lsp.intelephense.setup({
 })
 
 lsp.prismals.setup({
-  on_attach = function(client, bufnr)
-    vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.format()")
-    mappings.lspconfig.on_attach(client, bufnr)
-  end,
+  on_attach = mappings.lspconfig.on_attach,
   capabilities = cmp_capabilities
 })
 
