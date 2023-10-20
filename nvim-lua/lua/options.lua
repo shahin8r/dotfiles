@@ -10,3 +10,7 @@ vim.opt.cursorline = true
 vim.opt.updatetime = 250
 vim.opt.signcolumn = 'auto:2'
 vim.opt.wrap = false
+vim.opt.wildignore = vim.opt.wildignore + { '.git', '*/node_modules/*', '*/dist*' }
+
+vim.cmd("autocmd BufWritePre *.tf silent! execute '!terraform fmt -write=true %'")
+vim.cmd("autocmd BufWritePre *.prisma lua vim.lsp.buf.format()")

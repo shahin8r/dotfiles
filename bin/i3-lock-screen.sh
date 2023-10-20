@@ -9,4 +9,5 @@ convert $img -scale 10% -scale 1000% $img
 i3lock -n -u -i $img
 rm $img
 
+$HOME/.config/polybar/launch.sh
 dunst set-paused false
