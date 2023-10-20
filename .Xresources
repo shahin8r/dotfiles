@@ -5,4 +5,5 @@ Xft.hinting: 1
 Xft.antialias: 1
 Xft.rgba: rgb
 
+Xcursor.theme: DMZ-White
 Xcursor.size: 16
