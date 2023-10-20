@@ -49,6 +49,7 @@ M.lspconfig.on_attach = function(client, bufnr)
   vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, M.lspconfig.bufopts)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, M.lspconfig.bufopts)
   vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, M.lspconfig.bufopts)
+  vim.keymap.set('v', '<space>f', function() vim.lsp.buf.format { async = true } end, M.lspconfig.bufopts)
 end
 
 -- harpoon
