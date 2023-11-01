@@ -65,4 +65,22 @@ require('packer').startup(function(use)
   use { 'kyazdani42/nvim-web-devicons' }
 
   use { 'github/copilot.vim' }
+
+  use {
+    'rcarriga/nvim-dap-ui',
+    requires = {
+      {
+        'mfussenegger/nvim-dap',
+        config = function()
+          require('plugins.configs.dap')
+        end,
+      },
+      {
+        'theHamsta/nvim-dap-virtual-text'
+      },
+      {
+        "jay-babu/mason-nvim-dap.nvim",
+      }
+    }
+  }
 end)

@@ -52,6 +52,16 @@ M.lspconfig.on_attach = function(client, bufnr)
   vim.keymap.set('v', '<space>f', function() vim.lsp.buf.format { async = true } end, M.lspconfig.bufopts)
 end
 
+-- nvim-dap
+vim.keymap.set('n', '<F5>', function() require('dap').continue() end, M.lspconfig.bufopts)
+vim.keymap.set('n', '<F8>', function() require('dap').toggle_breakpoint() end, M.lspconfig.bufopts)
+vim.keymap.set('n', '<F10>', function() require('dap').step_over() end, M.lspconfig.bufopts)
+vim.keymap.set('n', '<F11>', function() require('dap').step_into() end, M.lspconfig.bufopts)
+vim.keymap.set('n', '<F12>', function() require('dap').step_out() end, M.lspconfig.bufopts)
+vim.keymap.set('n', '<leader>dr', '<cmd>DapToggleRepl<CR>', M.lspconfig.bufopts)
+vim.keymap.set('n', '<leader>do', function() require('dapui').toggle() end, M.lspconfig.bufopts)
+vim.keymap.set({'n', 'v'}, '<leader>dh', function() require('dapui').eval() end, M.lspconfig.bufopts)
+
 -- harpoon
 vim.keymap.set('n', '<space>ma', require('harpoon.mark').add_file, {})
 vim.keymap.set('n', '<space>mo', require('harpoon.ui').toggle_quick_menu, {})
