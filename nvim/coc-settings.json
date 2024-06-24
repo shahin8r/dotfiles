@@ -1,8 +1,0 @@
-{
-  "coc.preferences.formatOnSaveFiletypes": [
-    "typescript",
-    "html",
-    "javascript",
-    "typescriptreact"
-  ]
-}
