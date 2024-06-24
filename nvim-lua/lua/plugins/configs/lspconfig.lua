@@ -28,6 +28,7 @@ local lsp = require('lspconfig')
 require('mason').setup()
 require('mason-lspconfig').setup({
   ensure_installed = {
+    'eslint',
     'tsserver',
     'lua_ls',
     'intelephense',
@@ -96,6 +97,11 @@ lsp.terraformls.setup({
 })
 
 lsp.tailwindcss.setup({
+  on_attach = mappings.lspconfig.on_attach,
+  capabilities = cmp_capabilities
+})
+
+lsp.eslint.setup({
   on_attach = mappings.lspconfig.on_attach,
   capabilities = cmp_capabilities
 })

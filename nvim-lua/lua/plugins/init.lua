@@ -75,6 +75,7 @@ require('packer').startup(function(use)
           require('plugins.configs.dap')
         end,
       },
+      { 'nvim-neotest/nvim-nio' },
       {
         'theHamsta/nvim-dap-virtual-text'
       },
