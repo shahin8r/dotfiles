@@ -1,0 +1,40 @@
+#!/bin/bash
+
+MODE="2560x1600_144.00"
+OUTPUT="DP-3"
+ALACRITTY_CONFIG="$HOME/.config/alacritty.toml"
+GTK_FONT_SCALE=1.25
+GTF_OUTPUT=$(gtf 2560 1600 144 | grep Modeline | sed 's/Modeline //' | sed 's/"//g' | tr '[:upper:]' '[:lower:]')
+
+enable_resolution() {
+  if ! xrandr | grep -q "$MODE"; then
+    xrandr --newmode $GTF_OUTPUT
+    xrandr --addmode "$OUTPUT" "$MODE"
+  fi
+  xrandr --output "$OUTPUT" --mode "$MODE" --rate 144
+  gsettings set org.gnome.desktop.interface text-scaling-factor $GTK_FONT_SCALE
+  adjust_alacritty_font 13
+}
+
+disable_resolution() {
+  xrandr --output "$OUTPUT" --auto
+  gsettings set org.gnome.desktop.interface text-scaling-factor 1.0
+  adjust_alacritty_font 10
+}
+
+adjust_alacritty_font() {
+  local size=$1
+  if [ -f "$ALACRITTY_CONFIG" ]; then
+    sed -i -E 's/^size = [0-9]+/size = '"$size"'/' "$ALACRITTY_CONFIG"
+  fi
+}
+
+
+if [ "$1" = "on" ]; then
+  enable_resolution
+elif [ "$1" = "off" ]; then
+  disable_resolution
+else
+  echo "Usage: $0 {on|off}"
+  exit 1
+fi
