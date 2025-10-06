@@ -29,7 +29,7 @@ require('mason').setup()
 require('mason-lspconfig').setup({
   ensure_installed = {
     'eslint',
-    'tsserver',
+    'ts_ls',
     'lua_ls',
     'intelephense',
     'terraformls',
@@ -66,14 +66,24 @@ lsp.lua_ls.setup({
 
 local cmp_capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-lsp.tsserver.setup({
+lsp.ts_ls.setup({
   on_attach = mappings.lspconfig.on_attach,
   capabilities = cmp_capabilities
 })
 
 lsp.intelephense.setup({
   on_attach = mappings.lspconfig.on_attach,
-  capabilities = cmp_capabilities
+  capabilities = cmp_capabilities,
+  settings = {
+    intelephense = {
+      environment = {
+        includePaths = { "/home/shahin/dev/struqtur/struqtur-legacy-vendor" }
+      },
+    },
+  },
+  init_options = {
+    licenceKey = "/home/shahin/.config/intelephense/license.txt"
+  }
 })
 
 lsp.prismals.setup({
@@ -105,3 +115,9 @@ lsp.eslint.setup({
   on_attach = mappings.lspconfig.on_attach,
   capabilities = cmp_capabilities
 })
+
+lsp.graphql.setup {
+  capabilities = cmp_capabilities,
+  cmd = { "/home/shahin/.local/share/nvim/mason/bin/graphql-lsp", "server", "-m", "stream", "-s=http://localhost/hyperion/Graphql" },
+  on_attach = mappings.lspconfig.on_attach,
+}

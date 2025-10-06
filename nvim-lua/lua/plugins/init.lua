@@ -44,11 +44,7 @@ require('packer').startup(function(use)
   }
 
   use {
-    'jose-elias-alvarez/null-ls.nvim',
-    config = function()
-      require('plugins.configs.null-ls')
-    end,
-    requires = { {'nvim-lua/plenary.nvim'} }
+    'sbdchd/neoformat',
   }
 
   use {
@@ -91,4 +87,6 @@ require('packer').startup(function(use)
        require('plugins.configs.treesitter-context')
      end
   }
+
+  use { 'norcalli/nvim-colorizer.lua' }
 end)

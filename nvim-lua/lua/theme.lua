@@ -8,8 +8,18 @@ vim.api.nvim_set_hl(0, 'TelescopeNormal', { bg = '#0d0d0d' })
 vim.api.nvim_set_hl(0, 'HarpoonWindow', { bg = '#0d0d0d' })
 vim.api.nvim_set_hl(0, 'HarpoonBorder', { bg = '#0d0d0d' })
 
+_G.get_lsp_error_count = function()
+    return #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR })
+end
+
 -- statusline
-vim.opt.statusline = " %([%{FugitiveHead()}]%) %r%y%w %(%m %)%{pathshorten(expand('%:f'))} %=C:%c L:%l/%L "
+vim.opt.statusline = table.concat({
+    " %([%{FugitiveHead()}]%)",
+    " %r%y%w %(%m %)",
+    "%{pathshorten(expand('%:f'))}",
+    " %=C:%c L:%l/%L ",
+    " E:%{v:lua.get_lsp_error_count()}"
+}, "")
 
 -- gitgutter
 vim.g.gitgutter_sign_priority = 20
