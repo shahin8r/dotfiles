@@ -21,9 +21,10 @@ vim.diagnostic.config({
   },
 })
 
-local mappings = require('mappings')
+local shared = require('lsp.shared')
 
-local lsp = require('lspconfig')
+-- Apply shared defaults (capabilities, on_attach, etc.) to every LSP client.
+vim.lsp.config('*', shared.with_defaults())
 
 require('mason').setup()
 require('mason-lspconfig').setup({
@@ -37,87 +38,24 @@ require('mason-lspconfig').setup({
     'graphql',
     'angularls',
     'cssls',
-    'tailwindcss'
-  }
-})
-
-lsp.lua_ls.setup({
-  on_attach = mappings.lspconfig.on_attach,
-  settings = {
-    Lua = {
-      runtime = {
-        version = 'LuaJIT',
-      },
-      diagnostics = {
-        -- get the language server to recognize the `vim` global
-        globals = { 'vim' },
-      },
-      workspace = {
-        -- make the server aware of Neovim runtime files
-        library = vim.api.nvim_get_runtime_file("", true),
-      },
-      -- do not send telemetry data
-      telemetry = {
-        enable = false,
-      },
-    }
-  }
-})
-
-local cmp_capabilities = require('cmp_nvim_lsp').default_capabilities()
-
-lsp.ts_ls.setup({
-  on_attach = mappings.lspconfig.on_attach,
-  capabilities = cmp_capabilities
-})
-
-lsp.intelephense.setup({
-  on_attach = mappings.lspconfig.on_attach,
-  capabilities = cmp_capabilities,
-  settings = {
-    intelephense = {
-      environment = {
-        includePaths = { "/home/shahin/dev/struqtur/struqtur-legacy-vendor" }
-      },
-    },
+    'tailwindcss',
   },
-  init_options = {
-    licenceKey = "/home/shahin/.config/intelephense/license.txt"
-  }
+  automatic_enable = false,
 })
 
-lsp.prismals.setup({
-  on_attach = mappings.lspconfig.on_attach,
-  capabilities = cmp_capabilities
-})
-
-lsp.cssls.setup({
-  on_attach = mappings.lspconfig.on_attach,
-  capabilities = cmp_capabilities
-})
-
-lsp.angularls.setup({
-  on_attach = mappings.lspconfig.on_attach,
-  capabilities = cmp_capabilities
-})
-
-lsp.terraformls.setup({
-  on_attach = mappings.lspconfig.on_attach,
-  capabilities = cmp_capabilities
-})
-
-lsp.tailwindcss.setup({
-  on_attach = mappings.lspconfig.on_attach,
-  capabilities = cmp_capabilities
-})
-
-lsp.eslint.setup({
-  on_attach = mappings.lspconfig.on_attach,
-  capabilities = cmp_capabilities
-})
-
-lsp.graphql.setup {
-  capabilities = cmp_capabilities,
-  cmd = { "/home/shahin/.local/share/nvim/mason/bin/graphql-lsp", "server", "-m", "stream", "-s=http://localhost/hyperion/Graphql" },
-  on_attach = mappings.lspconfig.on_attach,
+local servers = {
+  'eslint',
+  'ts_ls',
+  'lua_ls',
+  'intelephense',
+  'terraformls',
+  'prismals',
+  'graphql',
+  'angularls',
+  'cssls',
+  'tailwindcss',
 }
+
+for _, server in ipairs(servers) do
+  vim.lsp.enable(server)
+end
