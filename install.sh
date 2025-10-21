@@ -109,9 +109,9 @@ log 'install hyprland and related packages'
 sudo pacman -S --noconfirm hyprland hyprlock hypridle hyprshot hyprpicker xdg-desktop-portal-hyprland swayosd swaync brightnessctl bluetui udiskie waybar nwg-look impala swayosd swaync brightnessctl bluetui udiskie waybar nwg-look btop
 yay -S --no-confirm --answerdiff=None walker elephant-desktopapplications elephant-calc elephant-clipboard elephant-providerlist elephant-symbols elephant-files openai-codex
 
-ln -sf $HOME/.dotfiles/hypr $HOME/.config/hypr
-ln -sf $HOME/.dotfiles/waybar $HOME/.config/waybar
-ln -sf $HOME/.dotfiles/swaync $HOME/.config/swaync
-ln -sf $HOME/.dotfiles/walker $HOME/.config/walker
+ln -sfn $HOME/.dotfiles/hypr $HOME/.config/hypr
+ln -sfn $HOME/.dotfiles/waybar $HOME/.config/waybar
+ln -sfn $HOME/.dotfiles/swaync $HOME/.config/swaync
+ln -sfn $HOME/.dotfiles/walker $HOME/.config/walker
 
 log 'All done! Reboot.'
