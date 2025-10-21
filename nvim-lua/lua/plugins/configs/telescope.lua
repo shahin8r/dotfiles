@@ -5,11 +5,11 @@ telescope.setup({
   defaults = {
     layout_strategy = 'vertical',
     file_ignore_patterns = {
-      '.git',
-      '.angular',
+      '.git/',
+      '.angular/',
       'node_modules',
-      'dist',
-      'build',
+      'dist/',
+      'build/',
       'package-lock.json',
       'yarn.lock',
     },

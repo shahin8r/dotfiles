@@ -23,8 +23,6 @@ vim.diagnostic.config({
 
 local shared = require('lsp.shared')
 
--- Apply shared defaults (capabilities, on_attach, etc.) to every LSP client.
-vim.lsp.config('*', shared.with_defaults())
 
 require('mason').setup()
 require('mason-lspconfig').setup({
@@ -56,6 +54,11 @@ local servers = {
   'tailwindcss',
 }
 
+vim.lsp.config('*', shared.with_defaults())
+
 for _, server in ipairs(servers) do
+  local ok, custom = pcall(require, 'lsp.' .. server)
+  local opts = ok and shared.with_defaults(custom) or shared.with_defaults()
+  vim.lsp.config(server, opts)
   vim.lsp.enable(server)
 end
