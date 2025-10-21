@@ -1,0 +1,8 @@
+theme = "custom"
+
+[placeholders]
+"default" = { input = "Search", list = "No Results" }
+
+[keybinds]
+next = ["ctrl j"]
+previous = ["ctrl k"]

@@ -1,0 +1,115 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: JetBrainsMonoNL Nerd Font, Helvetica, Arial, sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
+    min-height: 0;
+    color: #888;
+}
+
+window#waybar {
+    background: none;
+}
+
+tooltip {
+  background: rgba(25, 25, 25, 0.9);
+  border: 1px solid rgba(100, 114, 125, 0.2);
+}
+
+tooltip label {
+  color: white;
+}
+
+#workspaces button {
+    padding: 0 5px;
+    background: transparent;
+    color: white;
+    border-bottom: 3px solid transparent;
+}
+
+#clock {
+}
+
+#battery {
+}
+
+#battery.charging {
+    color: white;
+    background-color: #26A65B;
+}
+
+@keyframes blink {
+    to {
+        background-color: #330000;
+        color: white;
+    }
+}
+
+#battery.warning:not(.charging) {
+    background: #f1c40f;
+    color: black;
+}
+
+#battery.critical:not(.charging) {
+    background: #f53c3c;
+    color: white;
+    animation-name: blink;
+    animation-duration: 1s;
+    animation-timing-function: steps(24);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#memory.warning {
+  border: 1px solid rgba(255, 0, 0, 0.5);
+}
+
+#memory.critical {
+    background: #f53c3c;
+    color: white;
+    animation-name: blink;
+    animation-duration: 1s;
+    animation-timing-function: steps(24);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+label.module, #tray, #workspaces {
+  padding: 0.5rem 1rem;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 10px;
+}
+
+#workspaces {
+  padding: 0.5rem;
+}
+
+#workspaces button.active label {
+  font-weight: bold;
+  color: #eee;
+}
+
+#workspaces button.urgent label {
+  color: #f53c3c;
+}
+
+
+#workspaces button label {
+  transition: all 250ms ease-in-out;
+}
+
+#workspaces button:hover label {
+  color: #eee;
+}
+
+label:hover {
+  color: #eee;
+  transition: all 250ms ease-in-out;
+}
+
+.modules-left,
+.modules-center,
+.modules-right {
+  margin: 5px 5px 0px 5px;
+}

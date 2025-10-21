@@ -1,0 +1,24 @@
+:root {
+  --cc-bg: rgba(10, 10, 10, 0.85);
+  --noti-bg: 15, 15, 15;
+  --noti-bg-alpha: 1;
+  --noti-bg-darker: rgb(8, 8, 8);
+  --noti-bg-hover: rgb(20, 20, 20);
+  --noti-bg-focus: rgba(25, 25, 25, 0.5);
+  --noti-close-bg: rgb(25, 25, 25);
+  --noti-close-bg-hover: rgb(35, 35, 35);
+  --bg-selected: rgb(0, 70, 140);
+}
+
+.floating-notifications.background .notification-row .notification-background .notification {
+  padding: 10px;
+}
+
+.notification-row .notification-background .notification .notification-default-action .notification-content {
+  padding: 10px;
+}
+
+.notification-row .notification-background .notification .notification-default-action .notification-content .image {
+  margin-right: 20px;
+}
+
