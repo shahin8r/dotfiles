@@ -64,7 +64,7 @@ yay -S --noconfirm --answerdiff=None beekeeper-studio
 
 log 'install alacritty'
 sudo pacman -S --noconfirm alacritty
-ln -sf $HOME/.dotfiles/alacritty.yml $HOME/.config/alacritty.yml
+ln -sf $HOME/.dotfiles/alacritty.toml $HOME/.config/alacritty.toml
 
 log 'setup tmux'
 ln -sf $HOME/.dotfiles/.tmux.conf $HOME/.tmux.conf

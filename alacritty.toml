@@ -1,0 +1,26 @@
+[colors.normal]
+black = "#040404"
+
+[colors.primary]
+background = "#000000"
+foreground = "#eeeeee"
+
+[font]
+size = 14
+
+[font.normal]
+family = "JetBrainsMonoNL Nerd Font"
+
+[[keyboard.bindings]]
+action = "Last"
+key = 5
+mode = "Vi|~Search"
+mods = "Shift"
+
+[window.padding]
+x = 20
+y = 20
+
+[window]
+decorations = "None"
+opacity = 0.8
