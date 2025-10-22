@@ -100,7 +100,7 @@ log 'set zsh to default shell'
 sudo chsh -s $(which zsh) $USER
 
 log 'setup global gitignore'
-ln -sf $HOME/.dotfiles/.gitconfig $HOME/.gitconfig
+ln -sf $HOME/.dotfiles/.gitignore $HOME/.gitignore
 
 log 'install gnome-keyring'
 sudo pacman -S --noconfirm gnome-keyring seahorse
