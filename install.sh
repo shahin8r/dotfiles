@@ -60,7 +60,7 @@ log 'install spotify'
 yay -S --noconfirm --answerdiff=None spotify
 
 log 'install beekeeper studio'
-yay -S --noconfirm --answerdiff=None beekeeper-studio
+#yay -S --noconfirm --answerdiff=None beekeeper-studio
 
 log 'install alacritty'
 sudo pacman -S --noconfirm alacritty
@@ -105,8 +105,13 @@ ssh-keygen -t ed25519 -C "shahin.ag@gmail.com"
 ln -sf $HOME/.dotfiles/bin $HOME/bin
 
 log 'install hyprland and related packages'
-sudo pacman -S --noconfirm hyprland hyprlock hypridle hyprshot hyprpicker xdg-desktop-portal-hyprland swayosd swaync brightnessctl bluetui udiskie waybar nwg-look impala swayosd swaync brightnessctl bluetui udiskie waybar nwg-look btop
-yay -S --no-confirm --answerdiff=None walker elephant-desktopapplications elephant-calc elephant-clipboard elephant-providerlist elephant-symbols elephant-files openai-codex
+sudo pacman -S --noconfirm hyprland hyprlock hypridle hyprpaper hyprshot hyprpicker xdg-desktop-portal xdg-desktop-portal-gtk xdg-desktop-portal-hyprland swayosd swaync brightnessctl bluetui udiskie waybar nwg-look impala swayosd swaync brightnessctl bluetui udiskie waybar nwg-look btop nautilus
+yay -S --noconfirm --answerdiff=None walker elephant-desktopapplications elephant-calc elephant-clipboard elephant-providerlist elephant-symbols elephant-files
+
+sudo pacman -S --noconfirm xdg-user-dirs
+xdg-user-dirs-update
+
+ln -sfn $HOME/.dotfiles/xdg-desktop-portal $HOME/.config/xdg-desktop-portal
 
 ln -sfn $HOME/.dotfiles/hypr $HOME/.config/hypr
 ln -sfn $HOME/.dotfiles/waybar $HOME/.config/waybar
