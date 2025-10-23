@@ -35,8 +35,7 @@ log 'install terraform'
 sudo pacman -S --noconfirm terraform
 
 log 'install aws-vault'
-sudo curl -Lo /usr/local/bin/aws-vault https://github.com/99designs/aws-vault/releases/latest/download/aws-vault-linux-amd64
-sudo chmod 755 /usr/local/bin/aws-vault
+sudo pacman -S --noconfirm aws-vault
 
 log 'install packer'
 sudo pacman -S --noconfirm packer
@@ -112,7 +111,7 @@ ln -sf $HOME/.dotfiles/bin $HOME/bin
 
 log 'install hyprland and related packages'
 sudo pacman -S --noconfirm hyprland hyprlock hypridle hyprpaper hyprshot hyprpicker xdg-desktop-portal xdg-desktop-portal-gtk xdg-desktop-portal-hyprland swayosd swaync brightnessctl bluetui udiskie waybar nwg-look impala swayosd swaync brightnessctl bluetui udiskie waybar nwg-look btop nautilus
-yay -S --noconfirm --answerdiff=None walker elephant-desktopapplications elephant-calc elephant-clipboard elephant-providerlist elephant-symbols elephant-files
+yay -S --noconfirm --answerdiff=None walker-bin elephant-desktopapplications elephant-calc elephant-clipboard elephant-providerlist elephant-symbols elephant-files
 
 sudo pacman -S --noconfirm xdg-user-dirs
 xdg-user-dirs-update
