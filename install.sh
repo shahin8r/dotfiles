@@ -75,7 +75,7 @@ log 'setup tmux'
 ln -sf $HOME/.dotfiles/.tmux.conf $HOME/.tmux.conf
 
 log 'setup neovim'
-ln -sfn $HOME/.dotfiles/nvim $HOME/.config/nvim/
+ln -sfn $HOME/.dotfiles/nvim $HOME/.config/nvim
 
 log 'install nvm'
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash

@@ -9,7 +9,8 @@ require('nvim-treesitter.configs').setup{
     'prisma',
     'graphql',
     'tsx',
-    'markdown'
+    'markdown',
+    'markdown_inline'
   },
 
   highlight = {

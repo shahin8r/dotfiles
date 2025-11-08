@@ -89,4 +89,13 @@ require('packer').startup(function(use)
   }
 
   use { 'norcalli/nvim-colorizer.lua' }
+
+  use({
+    'MeanderingProgrammer/render-markdown.nvim',
+    after = { 'nvim-treesitter' },
+    requires = { 'nvim-tree/nvim-web-devicons', opt = true },
+    config = function()
+        require('render-markdown').setup({})
+    end,
+})
 end)
