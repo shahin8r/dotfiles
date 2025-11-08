@@ -111,7 +111,7 @@ ln -sf $HOME/.dotfiles/bin $HOME/bin
 
 log 'install hyprland and related packages'
 sudo pacman -S --noconfirm hyprland hyprlock hypridle hyprpaper hyprshot hyprpicker xdg-desktop-portal xdg-desktop-portal-gtk xdg-desktop-portal-hyprland swayosd swaync brightnessctl bluetui udiskie waybar nwg-look impala swayosd swaync brightnessctl bluetui udiskie waybar nwg-look btop nautilus
-yay -S --noconfirm --answerdiff=None walker-bin elephant-desktopapplications elephant-calc elephant-clipboard elephant-providerlist elephant-symbols elephant-files
+yay -S --noconfirm --answerdiff=None walker-bin elephant-desktopapplications elephant-calc elephant-clipboard elephant-providerlist elephant-symbols elephant-files terminaltexteffects-git
 
 sudo pacman -S --noconfirm xdg-user-dirs
 xdg-user-dirs-update
