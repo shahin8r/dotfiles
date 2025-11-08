@@ -2,11 +2,17 @@
 
 # Relaunch inside a fullscreen Alacritty instance if we're not already there.
 if [[ -z "${SCREENSAVER_CHILD:-}" ]]; then
+  # Bail if Hyprlock already owns the session or the saver is running.
+  if pidof hyprlock || pgrep -f "alacritty --class Screensaver"; then
+    exit 0
+  fi
+
   SCRIPT_PATH="$(realpath "$0")"
   exec alacritty --class Screensaver --title Screensaver \
     -o window.padding.x=0 \
     -o window.padding.y=0 \
     -o colors.primary.background="'#000000'" \
+    -o window.opacity=1 \
     -o colors.cursor.cursor="'#000000'" \
     -e env SCREENSAVER_CHILD=1 "$SCRIPT_PATH"
 fi
