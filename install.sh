@@ -117,7 +117,6 @@ sudo pacman -S --noconfirm xdg-user-dirs
 xdg-user-dirs-update
 
 ln -sfn $HOME/.dotfiles/xdg-desktop-portal $HOME/.config/xdg-desktop-portal
-
 ln -sfn $HOME/.dotfiles/hypr $HOME/.config/hypr
 ln -sfn $HOME/.dotfiles/waybar $HOME/.config/waybar
 ln -sfn $HOME/.dotfiles/swaync $HOME/.config/swaync
