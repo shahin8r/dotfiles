@@ -26,6 +26,3 @@ vim.g.gitgutter_sign_priority = 20
 
 -- lsp
 require('lspconfig.ui.windows').default_options.border = 'single'
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-  border = "rounded",
-})

@@ -22,7 +22,7 @@ screensaver_in_focus() {
 }
 
 exit_screensaver() {
-  hyprctl keyword cursor:invisible false
+  tput cnorm 2>/dev/null
   pkill -x tte 2>/dev/null
   pkill -f "alacritty --class Screensaver" 2>/dev/null
   exit 0
@@ -30,13 +30,12 @@ exit_screensaver() {
 
 trap exit_screensaver SIGINT SIGTERM SIGHUP SIGQUIT
 
-hyprctl keyword cursor:invisible true &>/dev/null
+tput civis 2>/dev/null
 
 while true; do
-  effect=$(tte 2>&1 | grep -oP '{\K[^}]+' | tr ',' ' ' | tr ' ' '\n' | sed -n '/^beams$/,$p' | sort -u | shuf -n1)
   tte -i ~/.dotfiles/logo.txt \
     --frame-rate 240 --canvas-width 0 --canvas-height $(($(tput lines) - 2)) --anchor-canvas c --anchor-text c \
-    "$effect" &
+    --random-effect &
 
   while pgrep -x tte >/dev/null; do
     if read -n 1 -t 3 || ! screensaver_in_focus; then

@@ -55,6 +55,7 @@ require('packer').startup(function(use)
   use { 'projekt0n/github-nvim-theme' }
 
   use { 'tpope/vim-fugitive' }
+  use { 'tpope/vim-rhubarb' }
 
   use { 'airblade/vim-gitgutter' }
 
