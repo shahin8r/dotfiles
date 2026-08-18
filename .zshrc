@@ -33,7 +33,7 @@ alias vim="nvim"
 alias ls="eza -lh --group-directories-first --icons=auto"
 alias cat="bat"
 
-source $HOME/.struqturrc
+[[ -f $HOME/.struqturrc ]] && source $HOME/.struqturrc
 
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"

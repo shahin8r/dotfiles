@@ -14,7 +14,7 @@ if [[ "$current_mode" == "dark" ]]; then
   next_mode="light"
   gtk_theme="Adwaita"
   color_scheme="prefer-light"
-  wallpaper="$DOTFILES/wallpaper.jpg"
+  wallpaper="$DOTFILES/wallpaper_light.png"
   btop_theme="current"
 else
   next_mode="dark"
@@ -30,11 +30,11 @@ sed -i "s/^color_theme = .*/color_theme = \"$btop_theme\"/" "$DOTFILES/btop/btop
 if [[ -f "$CURRENT_LINK/btop.theme" ]]; then
   ln -sfn "$CURRENT_LINK/btop.theme" "$DOTFILES/btop/themes/current.theme"
 fi
-if [[ -d "$HOME/.config/btop" ]]; then
+if [[ -w "$HOME/.config/btop/btop.conf" ]]; then
   mkdir -p "$HOME/.config/btop/themes"
-  sed -i "s/^color_theme = .*/color_theme = \"$btop_theme\"/" "$HOME/.config/btop/btop.conf"
+  sed -i "s/^color_theme = .*/color_theme = \"$btop_theme\"/" "$HOME/.config/btop/btop.conf" || true
   if [[ -f "$CURRENT_LINK/btop.theme" ]]; then
-    ln -sfn "$CURRENT_LINK/btop.theme" "$HOME/.config/btop/themes/current.theme"
+    ln -sfn "$CURRENT_LINK/btop.theme" "$HOME/.config/btop/themes/current.theme" || true
   fi
 fi
 echo "$next_mode" > "$STATE_FILE"
@@ -45,8 +45,18 @@ if command -v gsettings >/dev/null 2>&1; then
   gsettings set org.gnome.desktop.interface gtk-theme "$gtk_theme" >/dev/null 2>&1 || true
 fi
 
-if command -v hyprctl >/dev/null 2>&1 && pgrep -x hyprpaper >/dev/null 2>&1; then
-  hyprctl hyprpaper reload ,"$wallpaper" >/dev/null 2>&1 || true
+if command -v hyprctl >/dev/null 2>&1; then
+  if ! pgrep -x hyprpaper >/dev/null 2>&1; then
+    hyprctl dispatch exec hyprpaper >/dev/null 2>&1 || true
+    if ! pgrep -x hyprpaper >/dev/null 2>&1; then
+      hyprpaper >/dev/null 2>&1 &
+    fi
+    sleep 0.5
+  fi
+
+  hyprctl monitors -j | jq -r '.[].name' | while read -r monitor; do
+    hyprctl hyprpaper wallpaper "$monitor, $wallpaper, cover" >/dev/null 2>&1 || true
+  done
 fi
 
 pkill -SIGUSR2 waybar >/dev/null 2>&1 || true
