@@ -1,0 +1,55 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+runtime_dir="${XDG_RUNTIME_DIR:-/tmp}"
+pid_file="$runtime_dir/waybar-awake.pid"
+
+is_awake() {
+  [[ -s "$pid_file" ]] || return 1
+
+  local pid
+  pid="$(cat "$pid_file" 2>/dev/null || true)"
+  [[ "$pid" =~ ^[0-9]+$ ]] || return 1
+  kill -0 "$pid" 2>/dev/null
+}
+
+print_status() {
+  if is_awake; then
+    printf '{"text":" ","class":"active"}\n'
+  else
+    printf '{"text":" ","class":"inactive"}\n'
+  fi
+}
+
+case "${1:-status}" in
+  toggle)
+    if is_awake; then
+      kill "$(cat "$pid_file")" 2>/dev/null || true
+      rm -f "$pid_file"
+      if is_awake; then
+        notify-send "Caffeine" "Could not disable keep-awake mode" >/dev/null 2>&1 || true
+      else
+        notify-send "Caffeine" "Computer can sleep again" >/dev/null 2>&1 || true
+      fi
+    else
+      systemd-inhibit \
+        --what=idle:sleep \
+        --who=waybar \
+        --why="Caffeine mode is enabled from Waybar" \
+        sleep infinity >/dev/null 2>&1 &
+      printf '%s\n' "$!" > "$pid_file"
+      if is_awake; then
+        notify-send "Caffeine" "Computer will stay awake" >/dev/null 2>&1 || true
+      else
+        notify-send "Caffeine" "Could not enable keep-awake mode" >/dev/null 2>&1 || true
+      fi
+    fi
+    ;;
+  status)
+    print_status
+    ;;
+  *)
+    printf 'Usage: %s [status|toggle]\n' "$0" >&2
+    exit 2
+    ;;
+esac

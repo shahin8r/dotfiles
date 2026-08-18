@@ -96,6 +96,26 @@ label.module, #tray, #workspaces {
   color: @critical;
 }
 
+#custom-notifications,
+#custom-awake {
+  min-width: 44px;
+  padding-left: 0;
+  padding-right: 0;
+  color: @fg;
+}
+
+#custom-awake {
+  min-width: 44px;
+  padding-left: 0;
+}
+
+#custom-notifications.muted {
+  color: @critical;
+}
+
+#custom-awake.active {
+  color: @charging;
+}
 
 #workspaces button label {
   transition: all 250ms ease-in-out;

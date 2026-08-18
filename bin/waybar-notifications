@@ -1,0 +1,64 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+state() {
+  if pending_dnd; then
+    printf 'true\n'
+    return
+  fi
+
+  timeout 1s swaync-client --get-dnd 2>/dev/null || printf 'false\n'
+}
+
+runtime_dir="${XDG_RUNTIME_DIR:-/tmp}"
+pending_pid_file="$runtime_dir/waybar-notifications-dnd.pid"
+
+pending_dnd() {
+  [[ -s "$pending_pid_file" ]] || return 1
+
+  local pid
+  pid="$(cat "$pending_pid_file" 2>/dev/null || true)"
+  [[ "$pid" =~ ^[0-9]+$ ]] || return 1
+  kill -0 "$pid" 2>/dev/null
+}
+
+clear_pending_dnd() {
+  if pending_dnd; then
+    kill "$(cat "$pending_pid_file")" 2>/dev/null || true
+  fi
+
+  rm -f "$pending_pid_file"
+}
+
+print_status() {
+  if [[ "$(state)" == "true" ]]; then
+    printf '{"text":"","class":"muted"}\n'
+  else
+    printf '{"text":"","class":"active"}\n'
+  fi
+}
+
+case "${1:-status}" in
+  toggle)
+    current_state="$(state)"
+    if [[ "$current_state" == "true" ]]; then
+      clear_pending_dnd
+      timeout 1s swaync-client --dnd-off >/dev/null 2>&1 || true
+      notify-send "Notifications" "Notifications enabled" >/dev/null 2>&1 || true
+    else
+      (
+        notify-send --wait --expire-time=3000 "Notifications" "Do Not Disturb enabled" >/dev/null 2>&1 || true
+        timeout 1s swaync-client --dnd-on >/dev/null 2>&1 || true
+        rm -f "$pending_pid_file"
+      ) &
+      printf '%s\n' "$!" > "$pending_pid_file"
+    fi
+    ;;
+  status)
+    print_status
+    ;;
+  *)
+    printf 'Usage: %s [status|toggle]\n' "$0" >&2
+    exit 2
+    ;;
+esac

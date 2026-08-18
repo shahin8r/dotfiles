@@ -21,8 +21,9 @@
         "pulseaudio",
         "battery",
         "battery#bat2",
+        "custom/notifications",
+        "custom/awake",
         "tray"
-        // caffeine
     ],
     "tray": {
         "spacing": 8
@@ -129,6 +130,20 @@
     },
     "battery#bat2": {
         "bat": "BAT2"
+    },
+    "custom/notifications": {
+      "exec": "~/.dotfiles/bin/waybar-notifications",
+      "return-type": "json",
+      "interval": 5,
+      "tooltip": false,
+      "on-click": "~/.dotfiles/bin/waybar-notifications toggle"
+    },
+    "custom/awake": {
+      "exec": "~/.dotfiles/bin/waybar-awake",
+      "return-type": "json",
+      "interval": 5,
+      "tooltip": false,
+      "on-click": "~/.dotfiles/bin/waybar-awake toggle"
     },
     "power-profiles-daemon": {
       "format": "{icon}",
