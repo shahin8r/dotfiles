@@ -1,0 +1,24 @@
+[colors.normal]
+black = "#24292f"
+red = "#cf222e"
+green = "#116329"
+yellow = "#4d2d00"
+blue = "#0969da"
+magenta = "#8250df"
+cyan = "#1b7c83"
+white = "#ffffff"
+
+[colors.primary]
+background = "#ffffff"
+foreground = "#24292f"
+
+[colors.cursor]
+text = "#ffffff"
+cursor = "#24292f"
+
+[colors.selection]
+text = "#24292f"
+background = "#d0d7de"
+
+[window]
+opacity = 1.0

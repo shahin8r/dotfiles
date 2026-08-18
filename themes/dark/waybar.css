@@ -1,0 +1,10 @@
+@define-color fg #888888;
+@define-color fg-strong #eeeeee;
+@define-color fg-invert #000000;
+@define-color module-bg rgba(0, 0, 0, 0.8);
+@define-color tooltip-bg rgba(25, 25, 25, 0.9);
+@define-color tooltip-border rgba(100, 114, 125, 0.2);
+@define-color warning #f1c40f;
+@define-color critical #f53c3c;
+@define-color charging #26a65b;
+

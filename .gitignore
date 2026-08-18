@@ -1,2 +1,5 @@
 .vim/
 .vimspector.json
+.theme-mode
+themes/current
+btop/themes/

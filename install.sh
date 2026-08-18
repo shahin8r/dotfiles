@@ -121,5 +121,6 @@ ln -sfn $HOME/.dotfiles/hypr $HOME/.config/hypr
 ln -sfn $HOME/.dotfiles/waybar $HOME/.config/waybar
 ln -sfn $HOME/.dotfiles/swaync $HOME/.config/swaync
 ln -sfn $HOME/.dotfiles/walker $HOME/.config/walker
+ln -sfn $HOME/.dotfiles/btop $HOME/.config/btop
 
 log 'All done! Reboot.'

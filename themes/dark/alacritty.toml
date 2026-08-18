@@ -1,0 +1,9 @@
+[colors.normal]
+black = "#040404"
+
+[colors.primary]
+background = "#000000"
+foreground = "#eeeeee"
+
+[window]
+opacity = 0.7

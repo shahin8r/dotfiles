@@ -1,9 +1,6 @@
-[colors.normal]
-black = "#040404"
-
-[colors.primary]
-background = "#000000"
-foreground = "#eeeeee"
+[general]
+import = ["~/.dotfiles/themes/current/alacritty.toml"]
+live_config_reload = true
 
 [font]
 size = 14
@@ -23,4 +20,3 @@ y = 20
 
 [window]
 decorations = "None"
-opacity = 0.7

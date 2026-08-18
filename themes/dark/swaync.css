@@ -1,0 +1,33 @@
+:root {
+  --cc-bg: rgba(10, 10, 10, 0.85);
+  --noti-border-color: rgba(255, 255, 255, 0.15);
+  --noti-bg: 15, 15, 15;
+  --noti-bg-alpha: 1;
+  --noti-bg-darker: rgb(8, 8, 8);
+  --noti-bg-hover: rgb(20, 20, 20);
+  --noti-bg-focus: rgba(25, 25, 25, 0.5);
+  --noti-close-bg: rgb(25, 25, 25);
+  --noti-close-bg-hover: rgb(35, 35, 35);
+  --text-color: rgb(255, 255, 255);
+  --text-color-disabled: rgb(150, 150, 150);
+  --bg-selected: rgb(0, 70, 140);
+  --border: 1px solid var(--noti-border-color);
+  --notification-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3),
+    0 1px 3px 1px rgba(0, 0, 0, 0.7), 0 2px 6px 2px rgba(0, 0, 0, 0.3);
+  --mpris-album-art-overlay: rgba(0, 0, 0, 0.55);
+  --mpris-button-hover: rgba(0, 0, 0, 0.5);
+}
+
+@define-color cc-bg rgba(10, 10, 10, 0.85);
+@define-color noti-border-color rgba(255, 255, 255, 0.15);
+@define-color noti-bg rgba(15, 15, 15, 1);
+@define-color noti-bg-opaque rgb(15, 15, 15);
+@define-color noti-bg-darker rgb(8, 8, 8);
+@define-color noti-bg-hover rgb(20, 20, 20);
+@define-color noti-bg-hover-opaque rgb(20, 20, 20);
+@define-color noti-bg-focus rgba(25, 25, 25, 0.5);
+@define-color noti-close-bg rgb(25, 25, 25);
+@define-color noti-close-bg-hover rgb(35, 35, 35);
+@define-color text-color rgb(255, 255, 255);
+@define-color text-color-disabled rgb(150, 150, 150);
+@define-color bg-selected rgb(0, 70, 140);
