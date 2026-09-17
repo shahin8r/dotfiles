@@ -37,7 +37,11 @@ if [[ -w "$HOME/.config/btop/btop.conf" ]]; then
     ln -sfn "$CURRENT_LINK/btop.theme" "$HOME/.config/btop/themes/current.theme" || true
   fi
 fi
-echo "$next_mode" > "$STATE_FILE"
+# Publish a complete value so live watchers never read a truncated state file.
+state_tmp="$(mktemp "${STATE_FILE}.XXXXXX")"
+trap 'rm -f "$state_tmp"' EXIT
+printf '%s\n' "$next_mode" > "$state_tmp"
+mv -f "$state_tmp" "$STATE_FILE"
 touch "$DOTFILES/alacritty.toml"
 
 if command -v gsettings >/dev/null 2>&1; then

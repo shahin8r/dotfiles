@@ -42,6 +42,7 @@ local function sync_theme()
     local mode = read_mode()
     if vim.g.dotfiles_theme_mode ~= mode then
         apply_theme(mode)
+        vim.cmd('redraw!')
     end
 end
 
@@ -49,10 +50,43 @@ apply_theme(read_mode())
 
 vim.api.nvim_create_user_command('ThemeSync', sync_theme, {})
 
+local theme_group = vim.api.nvim_create_augroup('DotfilesThemeSync', { clear = true })
+
 vim.api.nvim_create_autocmd({ 'FocusGained', 'BufEnter' }, {
-    group = vim.api.nvim_create_augroup('DotfilesThemeSync', { clear = true }),
+    group = theme_group,
     callback = sync_theme,
 })
+
+-- Watch the directory so atomic replacement of the state file keeps working.
+-- Close the previous handle when this config is sourced in an existing session.
+if _G.dotfiles_theme_watcher then
+    _G.dotfiles_theme_watcher:stop()
+    _G.dotfiles_theme_watcher:close()
+    _G.dotfiles_theme_watcher = nil
+end
+
+local watcher = vim.uv.new_fs_event()
+if watcher then
+    local started = watcher:start(vim.fn.fnamemodify(state_file, ':h'), {},
+        vim.schedule_wrap(function(err, filename)
+            if not err and (not filename or filename == vim.fn.fnamemodify(state_file, ':t')) then
+                sync_theme()
+            end
+        end))
+    if started then
+        _G.dotfiles_theme_watcher = watcher
+        vim.api.nvim_create_autocmd('VimLeavePre', {
+            group = theme_group,
+            callback = function()
+                watcher:stop()
+                watcher:close()
+                _G.dotfiles_theme_watcher = nil
+            end,
+        })
+    else
+        watcher:close()
+    end
+end
 
 _G.get_lsp_error_count = function()
     return #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR })
